@@ -1,0 +1,7 @@
+{
+  "packages": [
+    "packages/*"
+  ],
+  "registry": "https://nexus.hupovip.cn/repository/hp-npm/",
+  "version": "independent"
+}
