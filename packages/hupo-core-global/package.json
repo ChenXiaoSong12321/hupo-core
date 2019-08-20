@@ -1,6 +1,6 @@
 {
   "name": "@hupo/core-global",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "",
   "main": "dist/index.js",
   "jsnext:main": "dist/index.esm.js",
@@ -64,6 +64,5 @@
     "ts-node": "^8.3.0",
     "tslib": "^1.10.0",
     "typescript": "^3.5.3"
-  },
-  "dependencies": {}
+  }
 }
