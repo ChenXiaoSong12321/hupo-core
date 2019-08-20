@@ -1,10 +1,10 @@
 {
-  "name": "@hupo/core-global",
-  "version": "0.0.1",
+  "name": "@hupo/core-wx-app-tools",
+  "version": "0.0.0",
   "description": "",
-  "main": "dist/index.js",
+  "main": "dist/index.aio.min.js",
   "jsnext:main": "dist/index.esm.js",
-  "module": "dist/index.esm.js",
+  "module": "dist/index.js",
   "sideEffects": false,
   "srctype": "js",
   "scripts:ts": {
@@ -65,5 +65,9 @@
     "tslib": "^1.10.0",
     "typescript": "^3.5.3"
   },
-  "dependencies": {}
+  "dependencies": {
+    "@babel/runtime": "^7.5.5",
+    "@jsmini/extend": "^0.3.1",
+    "@jsmini/type": "^0.8.0"
+  }
 }

@@ -2,6 +2,13 @@
   "packages": [
     "packages/*"
   ],
-  "registry": "https://nexus.hupovip.cn/repository/hp-npm/",
+  "bootstarp": {
+    "scope": {
+      "hupo": "https://nexus.hupovip.cn/repository/hp-npm/"
+    }
+  },
+  "publishConfig": {
+    "registry": "https://nexus.hupovip.cn/repository/hp-npm/"
+  },
   "version": "independent"
 }
