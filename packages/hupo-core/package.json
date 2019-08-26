@@ -1,6 +1,6 @@
 {
   "name": "@hupo/core",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "",
   "main": "dist/index.aio.min.js",
   "jsnext:main": "dist/index.esm.js",
@@ -67,6 +67,9 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.5.5",
+    "@hupo/core-cml-base-tree": "file:../hupo-core-cml-base-tree",
+    "@hupo/core-cml-event": "file:../hupo-core-cml-event",
+    "@hupo/core-dayjs": "file:../hupo-core-dayjs",
     "@hupo/core-global": "file:../hupo-core-global",
     "@jsmini/extend": "^0.3.1",
     "@jsmini/type": "^0.8.0"
