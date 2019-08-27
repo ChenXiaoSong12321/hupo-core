@@ -1,6 +1,6 @@
 {
   "name": "@hupo/core",
-  "version": "0.0.9",
+  "version": "0.1.1",
   "description": "",
   "main": "dist/index.js",
   "jsnext:main": "dist/index.esm.js",
