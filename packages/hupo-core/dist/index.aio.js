@@ -1,5 +1,5 @@
 /*!
- * @hupo/core 0.1.4 
+ * @hupo/core 0.1.6 
  * Copyright 2019 . All Rights Reserved
  */
 

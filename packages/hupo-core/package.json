@@ -71,6 +71,7 @@
     "@hupo/core-dayjs": "file:../hupo-core-dayjs",
     "@hupo/core-global": "file:../hupo-core-global",
     "@hupo/core-promise": "file:../hupo-core-promise",
+    "@hupo/core-timer": "file:../hupo-core-timer",
     "@hupo/core-wx-app-tools": "file:../hupo-core-wx-app-tools"
   }
 }
