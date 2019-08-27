@@ -1,6 +1,6 @@
 {
   "name": "@hupo/core-timer",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "",
   "main": "dist/index.aio.min.js",
   "jsnext:main": "dist/index.esm.js",
