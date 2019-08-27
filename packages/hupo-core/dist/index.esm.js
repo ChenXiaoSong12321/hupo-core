@@ -1,5 +1,5 @@
 /*!
- * @hupo/core 0.0.5 
+ * @hupo/core 0.0.8 
  * Copyright 2019 . All Rights Reserved
  */
 
@@ -8,7 +8,8 @@ export { default as promise } from '@hupo/core-promise';
 export { default as wxTools } from '@hupo/core-wx-app-tools';
 export { componentBaseTreeMixin, pageBaseTreeMixin } from '@hupo/core-cml-base-tree';
 export { Event, componentEventMixin, pageEventMixin } from '@hupo/core-cml-event';
-export { default as dayjs } from '@hupo/core-dayjs';
+
+// export { default as dayjs} from "@hupo/core-dayjs";
 
 var autoRequire2object = function autoRequire2object(modulesFiles) {
   var modules = modulesFiles.keys().reduce(function (modules, modulePath) {

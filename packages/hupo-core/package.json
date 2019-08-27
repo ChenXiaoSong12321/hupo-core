@@ -1,6 +1,6 @@
 {
   "name": "@hupo/core",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "",
   "main": "dist/index.js",
   "jsnext:main": "dist/index.esm.js",
@@ -69,6 +69,8 @@
     "@hupo/core-cml-base-tree": "file:../hupo-core-cml-base-tree",
     "@hupo/core-cml-event": "file:../hupo-core-cml-event",
     "@hupo/core-dayjs": "file:../hupo-core-dayjs",
-    "@hupo/core-global": "file:../hupo-core-global"
+    "@hupo/core-global": "file:../hupo-core-global",
+    "@hupo/core-promise": "file:../hupo-core-promise",
+    "@hupo/core-wx-app-tools": "file:../hupo-core-wx-app-tools"
   }
 }

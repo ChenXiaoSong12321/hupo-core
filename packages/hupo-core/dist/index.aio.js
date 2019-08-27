@@ -1,18 +1,15 @@
 /*!
- * @hupo/core 0.0.5 
+ * @hupo/core 0.0.8 
  * Copyright 2019 . All Rights Reserved
  */
 
 (function (global, factory) {
-  typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@hupo/core-global'), require('@hupo/core-promise'), require('@hupo/core-wx-app-tools'), require('@hupo/core-dayjs')) :
-  typeof define === 'function' && define.amd ? define(['exports', '@hupo/core-global', '@hupo/core-promise', '@hupo/core-wx-app-tools', '@hupo/core-dayjs'], factory) :
-  (global = global || self, factory(global.core = {}, global.coreGlobal, global.corePromise, global.coreWxAppTools, global.coreDayjs));
-}(this, function (exports, coreGlobal, corePromise, coreWxAppTools, coreDayjs) { 'use strict';
+  typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@hupo/core-global')) :
+  typeof define === 'function' && define.amd ? define(['exports', '@hupo/core-global'], factory) :
+  (global = global || self, factory(global.core = {}, global.coreGlobal));
+}(this, function (exports, coreGlobal) { 'use strict';
 
   coreGlobal = coreGlobal && coreGlobal.hasOwnProperty('default') ? coreGlobal['default'] : coreGlobal;
-  corePromise = corePromise && corePromise.hasOwnProperty('default') ? corePromise['default'] : corePromise;
-  coreWxAppTools = coreWxAppTools && coreWxAppTools.hasOwnProperty('default') ? coreWxAppTools['default'] : coreWxAppTools;
-  coreDayjs = coreDayjs && coreDayjs.hasOwnProperty('default') ? coreDayjs['default'] : coreDayjs;
 
   /*!
    * @hupo/core-global 0.0.1 
@@ -22,7 +19,203 @@
   var _global = typeof window === 'undefined' ? global : window;
 
   /*!
-   * @hupo/core-cml-base-tree 0.0.0 
+   * @hupo/core-promise 0.0.0 
+   * Copyright 2019 . All Rights Reserved
+   */
+
+  function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {
+    try {
+      var info = gen[key](arg);
+      var value = info.value;
+    } catch (error) {
+      reject(error);
+      return;
+    }
+
+    if (info.done) {
+      resolve(value);
+    } else {
+      Promise.resolve(value).then(_next, _throw);
+    }
+  }
+
+  function _asyncToGenerator(fn) {
+    return function () {
+      var self = this,
+          args = arguments;
+      return new Promise(function (resolve, reject) {
+        var gen = fn.apply(self, args);
+
+        function _next(value) {
+          asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);
+        }
+
+        function _throw(err) {
+          asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);
+        }
+
+        _next(undefined);
+      });
+    };
+  }
+
+  var exit = function exit(error) {
+    return Promise.reject(new Error(error));
+  };
+
+  var cache =
+  /*#__PURE__*/
+  function () {
+    var _ref = _asyncToGenerator(
+    /*#__PURE__*/
+    regeneratorRuntime.mark(function _callee(id, promise) {
+      return regeneratorRuntime.wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              if (!_global.promise) _global.promise = {};
+
+              if (!_global.promise[id]) {
+                _global.promise[id] = promise();
+              }
+
+              _context.prev = 2;
+              _context.next = 5;
+              return _global.promise[id];
+
+            case 5:
+              return _context.abrupt("return", _context.sent);
+
+            case 8:
+              _context.prev = 8;
+              _context.t0 = _context["catch"](2);
+              _global.promise[id] = null;
+              delete _global.promise[id];
+              return _context.abrupt("return", exit(_context.t0));
+
+            case 13:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee, null, [[2, 8]]);
+    }));
+
+    return function cache(_x, _x2) {
+      return _ref.apply(this, arguments);
+    };
+  }();
+
+  var del = function del(id) {
+    if (_global.promise[id]) {
+      _global.promise[id] = null;
+      delete _global.promise[id];
+    }
+  };
+
+  var delay = function delay(time) {
+    return new Promise(function (resolve) {
+      setTimeout(resolve, time);
+    });
+  };
+
+  var index = {
+    exit: exit,
+    cache: cache,
+    del: del,
+    delay: delay
+  };
+
+  /*!
+   * @hupo/core-wx-app-tools 0.0.0 
+   * Copyright 2019 . All Rights Reserved
+   */
+  // 特别指定的wx对象中不进行Promise封装的方法
+  var noPromiseMethods = {
+    clearStorage: 1,
+    hideToast: 1,
+    hideLoading: 1,
+    drawCanvas: 1,
+    canIUse: 1,
+    stopRecord: 1,
+    pauseVoice: 1,
+    stopVoice: 1,
+    pauseBackgroundAudio: 1,
+    stopBackgroundAudio: 1,
+    showNavigationBarLoading: 1,
+    hideNavigationBarLoading: 1,
+    createAnimation: 1,
+    createSelectorQuery: 1,
+    hideKeyboard: 1,
+    stopPullDownRefresh: 1,
+    createWorker: 1,
+    pageScrollTo: 1,
+    reportAnalytics: 1
+  };
+  var wxTools = {};
+
+  if (typeof wx !== 'undefined') {
+    Object.keys(wx).forEach(function (key) {
+      if (noPromiseMethods[key] || // 特别指定的方法
+      /^get\w*Manager$/.test(key) || // 获取manager的api
+      /^create\w*Context$/.test(key) || // 创建上下文相关api
+      /^(on|off)/.test(key) || // 以 on* 或 off开头的方法
+      /\w+Sync$/.test(key) // 以 Sync 结尾的方法
+      ) {
+          // 不进行Promise封装
+          wxTools[key] = function () {
+            var res = wx[key].apply(wx, arguments);
+            return res;
+          };
+
+          return;
+        } // 其余方法自动Promise化
+
+
+      wxTools[key] = function () {
+        var obj = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {}; // if (key === 'showModal') {
+        //   // 按钮统一色调
+        //   obj = Object.assign({
+        //     confirmColor: color.primary
+        //   }, obj)
+        // }
+
+        return new Promise(function (resolve, reject) {
+          var originSuccess = obj.success;
+          var originFail = obj.fail;
+
+          obj.success = function (res) {
+            originSuccess && originSuccess.apply(this, arguments);
+            resolve(res);
+          };
+
+          obj.fail = function (res) {
+            console.log(obj, res);
+            originFail && originFail.apply(this, arguments);
+            reject(res);
+          };
+
+          wx[key](obj);
+        });
+      };
+    });
+  }
+
+  wxTools.$nextTick = function () {
+    var delay = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 500;
+    return new Promise(function (resolve, reject) {
+      if (wxTools.nextTick) {
+        wxTools.nextTick(resolve);
+      } else {
+        setTimeout(function () {
+          resolve();
+        }, delay);
+      }
+    });
+  };
+
+  /*!
+   * @hupo/core-cml-base-tree 0.0.2 
    * Copyright 2019 . All Rights Reserved
    */
 
@@ -294,6 +487,8 @@
     }
   };
 
+  // export { default as dayjs} from "@hupo/core-dayjs";
+
   var autoRequire2object = function autoRequire2object(modulesFiles) {
     var modules = modulesFiles.keys().reduce(function (modules, modulePath) {
       // set './app.js' => 'app'
@@ -312,9 +507,6 @@
   };
 
   exports.global = coreGlobal;
-  exports.promise = corePromise;
-  exports.wxTools = coreWxAppTools;
-  exports.dayjs = coreDayjs;
   exports.Event = Event;
   exports.autoRequire2array = autoRequire2array;
   exports.autoRequire2object = autoRequire2object;
@@ -322,6 +514,8 @@
   exports.componentEventMixin = component$1;
   exports.pageBaseTreeMixin = page;
   exports.pageEventMixin = page$1;
+  exports.promise = index;
+  exports.wxTools = wxTools;
 
   Object.defineProperty(exports, '__esModule', { value: true });
 

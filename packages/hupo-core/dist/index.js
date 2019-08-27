@@ -1,5 +1,5 @@
 /*!
- * @hupo/core 0.0.5 
+ * @hupo/core 0.0.8 
  * Copyright 2019 . All Rights Reserved
  */
 
@@ -14,7 +14,8 @@ var corePromise = _interopDefault(require('@hupo/core-promise'));
 var coreWxAppTools = _interopDefault(require('@hupo/core-wx-app-tools'));
 var coreCmlBaseTree = require('@hupo/core-cml-base-tree');
 var coreCmlEvent = require('@hupo/core-cml-event');
-var coreDayjs = _interopDefault(require('@hupo/core-dayjs'));
+
+// export { default as dayjs} from "@hupo/core-dayjs";
 
 var autoRequire2object = function autoRequire2object(modulesFiles) {
   var modules = modulesFiles.keys().reduce(function (modules, modulePath) {
@@ -66,6 +67,5 @@ Object.defineProperty(exports, 'pageEventMixin', {
     return coreCmlEvent.pageEventMixin;
   }
 });
-exports.dayjs = coreDayjs;
 exports.autoRequire2array = autoRequire2array;
 exports.autoRequire2object = autoRequire2object;
