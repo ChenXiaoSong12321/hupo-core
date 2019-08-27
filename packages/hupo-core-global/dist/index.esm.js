@@ -1,5 +1,5 @@
 /*!
- * @hupo/core-global 0.0.5 
+ * @hupo/core-global 0.1.4 
  * Copyright 2019 . All Rights Reserved
  */
 

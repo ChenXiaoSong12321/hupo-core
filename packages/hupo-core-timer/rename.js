@@ -1,6 +1,6 @@
-var path = require('path');
+var path = require('./node_modules/path');
 
-var cdkit = require('cdkit');
+var cdkit = require('./node_modules/cdkit');
 
 
 var fromName1 = 'jslib-base';

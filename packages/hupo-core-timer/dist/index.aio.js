@@ -1,5 +1,5 @@
 /*!
- * @hupo/core-timer 0.0.0 
+ * @hupo/core-timer 0.1.5 
  * Copyright 2019 . All Rights Reserved
  */
 

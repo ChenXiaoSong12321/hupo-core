@@ -1,30 +1,15 @@
 /*!
- * @hupo/core-cml-base-tree 0.1.2 
+ * @hupo/core-cml-base-tree 0.1.4 
  * Copyright 2019 . All Rights Reserved
  */
 
 (function (global, factory) {
-  typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
-  typeof define === 'function' && define.amd ? define(['exports'], factory) :
-  (global = global || self, factory(global['core-cml-base-tree'] = {}));
-}(this, function (exports) { 'use strict';
+  typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@hupo/core-global')) :
+  typeof define === 'function' && define.amd ? define(['exports', '@hupo/core-global'], factory) :
+  (global = global || self, factory(global['core-cml-base-tree'] = {}, global.global));
+}(this, function (exports, global) { 'use strict';
 
-  /*!
-   * @hupo/core-global 0.0.5 
-   * Copyright 2019 . All Rights Reserved
-   */
-  // hupo
-  var getGlobal = function getGlobal() {
-    if (typeof window === 'undefined') {
-      if (!global.$mall) global.$mall = {};
-      return global.$mall;
-    } else {
-      if (!window.$mall) window.$mall = {};
-      return window.$mall;
-    }
-  };
-
-  var _global = getGlobal();
+  global = global && global.hasOwnProperty('default') ? global['default'] : global;
 
   function _classCallCheck(instance, Constructor) {
     if (!(instance instanceof Constructor)) {
@@ -125,23 +110,23 @@
 
   var component = {
     created: function created() {
-      _global._baseTree.addComponent(this);
+      global._baseTree.addComponent(this);
     },
     beforeDestroy: function beforeDestroy() {
-      _global._baseTree.removeComponent(this);
+      global._baseTree.removeComponent(this);
     }
   };
 
   var page = {
     created: function created() {
-      _global._baseTree.addPage(this);
+      global._baseTree.addPage(this);
     },
     beforeDestroy: function beforeDestroy() {
-      _global._baseTree.removePage(this);
+      global._baseTree.removePage(this);
     }
   };
 
-  _global._baseTree = new BaseTree();
+  global._baseTree = new BaseTree();
 
   exports.componentBaseTreeMixin = component;
   exports.pageBaseTreeMixin = page;

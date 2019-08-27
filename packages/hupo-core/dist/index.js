@@ -1,5 +1,5 @@
 /*!
- * @hupo/core 0.0.8 
+ * @hupo/core 0.1.4 
  * Copyright 2019 . All Rights Reserved
  */
 
@@ -14,58 +14,41 @@ var corePromise = _interopDefault(require('@hupo/core-promise'));
 var coreWxAppTools = _interopDefault(require('@hupo/core-wx-app-tools'));
 var coreCmlBaseTree = require('@hupo/core-cml-base-tree');
 var coreCmlEvent = require('@hupo/core-cml-event');
+var coreTimer = _interopDefault(require('@hupo/core-timer'));
 
-// export { default as dayjs} from "@hupo/core-dayjs";
 
-var autoRequire2object = function autoRequire2object(modulesFiles) {
-  var modules = modulesFiles.keys().reduce(function (modules, modulePath) {
-    // set './app.js' => 'app'
-    var moduleName = modulePath.replace(/^\.\/(.*)\.\w+$/, '$1');
-    var value = modulesFiles(modulePath);
-    modules[moduleName] = value["default"];
-    return modules;
-  }, {});
-  return modules;
-};
-var autoRequire2array = function autoRequire2array(modulesFiles) {
-  var modules = modulesFiles.keys().map(function (item) {
-    return modulesFiles(item)["default"];
-  });
-  return modules;
-};
 
 exports.global = coreGlobal;
 exports.promise = corePromise;
 exports.wxTools = coreWxAppTools;
 Object.defineProperty(exports, 'componentBaseTreeMixin', {
-  enumerable: true,
-  get: function () {
-    return coreCmlBaseTree.componentBaseTreeMixin;
-  }
+	enumerable: true,
+	get: function () {
+		return coreCmlBaseTree.componentBaseTreeMixin;
+	}
 });
 Object.defineProperty(exports, 'pageBaseTreeMixin', {
-  enumerable: true,
-  get: function () {
-    return coreCmlBaseTree.pageBaseTreeMixin;
-  }
+	enumerable: true,
+	get: function () {
+		return coreCmlBaseTree.pageBaseTreeMixin;
+	}
 });
 Object.defineProperty(exports, 'Event', {
-  enumerable: true,
-  get: function () {
-    return coreCmlEvent.Event;
-  }
+	enumerable: true,
+	get: function () {
+		return coreCmlEvent.Event;
+	}
 });
 Object.defineProperty(exports, 'componentEventMixin', {
-  enumerable: true,
-  get: function () {
-    return coreCmlEvent.componentEventMixin;
-  }
+	enumerable: true,
+	get: function () {
+		return coreCmlEvent.componentEventMixin;
+	}
 });
 Object.defineProperty(exports, 'pageEventMixin', {
-  enumerable: true,
-  get: function () {
-    return coreCmlEvent.pageEventMixin;
-  }
+	enumerable: true,
+	get: function () {
+		return coreCmlEvent.pageEventMixin;
+	}
 });
-exports.autoRequire2array = autoRequire2array;
-exports.autoRequire2object = autoRequire2object;
+exports.timer = coreTimer;

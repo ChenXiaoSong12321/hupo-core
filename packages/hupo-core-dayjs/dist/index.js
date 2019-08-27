@@ -1,5 +1,5 @@
 /*!
- * @hupo/core-dayjs 0.0.2 
+ * @hupo/core-dayjs 0.1.4 
  * Copyright 2019 . All Rights Reserved
  */
 

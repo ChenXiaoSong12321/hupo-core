@@ -1,5 +1,5 @@
 /*!
- * @hupo/core-cml-base-tree 0.1.2 
+ * @hupo/core-cml-base-tree 0.1.4 
  * Copyright 2019 . All Rights Reserved
  */
 

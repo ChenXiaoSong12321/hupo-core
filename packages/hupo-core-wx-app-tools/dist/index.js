@@ -1,5 +1,5 @@
 /*!
- * @hupo/core-wx-app-tools 0.0.0 
+ * @hupo/core-wx-app-tools 0.1.4 
  * Copyright 2019 . All Rights Reserved
  */
 

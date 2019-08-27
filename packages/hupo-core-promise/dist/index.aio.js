@@ -1,13 +1,15 @@
 /*!
- * @hupo/core-promise 0.0.0 
+ * @hupo/core-promise 0.1.4 
  * Copyright 2019 . All Rights Reserved
  */
 
 (function (global, factory) {
-  typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
-  typeof define === 'function' && define.amd ? define(['exports'], factory) :
-  (global = global || self, factory(global['core-promise'] = {}));
-}(this, function (exports) { 'use strict';
+  typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@hupo/core-global')) :
+  typeof define === 'function' && define.amd ? define(['exports', '@hupo/core-global'], factory) :
+  (global = global || self, factory(global['core-promise'] = {}, global.global));
+}(this, function (exports, global) { 'use strict';
+
+  global = global && global.hasOwnProperty('default') ? global['default'] : global;
 
   function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {
     try {
@@ -45,13 +47,6 @@
     };
   }
 
-  /*!
-   * @hupo/core-global 0.0.1 
-   * Copyright 2019 . All Rights Reserved
-   */
-  // hupo
-  var _global = typeof window === 'undefined' ? global : window;
-
   var exit = function exit(error) {
     return Promise.reject(new Error(error));
   };
@@ -65,15 +60,15 @@
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
-              if (!_global.promise) _global.promise = {};
+              if (!global.promise) global.promise = {};
 
-              if (!_global.promise[id]) {
-                _global.promise[id] = promise();
+              if (!global.promise[id]) {
+                global.promise[id] = promise();
               }
 
               _context.prev = 2;
               _context.next = 5;
-              return _global.promise[id];
+              return global.promise[id];
 
             case 5:
               return _context.abrupt("return", _context.sent);
@@ -81,8 +76,8 @@
             case 8:
               _context.prev = 8;
               _context.t0 = _context["catch"](2);
-              _global.promise[id] = null;
-              delete _global.promise[id];
+              global.promise[id] = null;
+              delete global.promise[id];
               return _context.abrupt("return", exit(_context.t0));
 
             case 13:
@@ -98,9 +93,9 @@
     };
   }();
   var del = function del(id) {
-    if (_global.promise[id]) {
-      _global.promise[id] = null;
-      delete _global.promise[id];
+    if (global.promise[id]) {
+      global.promise[id] = null;
+      delete global.promise[id];
     }
   };
   var delay = function delay(time) {
