@@ -1,5 +1,5 @@
 /*!
- * @hupo/core-cml-base-tree 0.0.2 
+ * @hupo/core-cml-base-tree 0.1.1 
  * Copyright 2019 . All Rights Reserved
  */
 
@@ -34,7 +34,7 @@ function _createClass(Constructor, protoProps, staticProps) {
 }
 
 var getViewId = function getViewId(instance) {
-  return instance.__wxWebviewId__ || instance.$route.path;
+  return instance.__wxWebviewId__ || instance._uid;
 };
 var getComponentName = function getComponentName(instance) {
   return instance.__cml_originOptions__ ? instance.__cml_originOptions__.componentName : instance.$options.componentName;
@@ -77,7 +77,8 @@ function () {
         return;
       }
 
-      var viewId = getViewId(component);
+      var instance = component.$route ? component.$route.matched[0].instances["default"] : component;
+      var viewId = getViewId(instance);
       var page = this.pages[viewId];
       if (!page._children[componentName]) page._children[componentName] = [];
 
@@ -95,7 +96,7 @@ function () {
         return;
       }
 
-      var viewId = getViewId(component);
+      var viewId = getViewId(component._page);
       var page = this.pages[viewId];
 
       if (page && page._children[componentName]) {

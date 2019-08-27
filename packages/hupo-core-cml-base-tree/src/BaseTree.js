@@ -21,7 +21,8 @@ export default class BaseTree {
       console.warn('you have to add componentName of component', component)
       return
     }
-    const viewId = getViewId(component)
+    const instance = component.$route ? component.$route.matched[0].instances.default : component
+    const viewId = getViewId(instance)
     const page = this.pages[viewId]
     if(!page._children[componentName])page._children[componentName] = []
     page._children[componentName].push(component)
@@ -33,7 +34,7 @@ export default class BaseTree {
       console.warn('you have to add componentName of component', component)
       return
     }
-    const viewId = getViewId(component)
+    const viewId = getViewId(component._page)
     const page = this.pages[viewId]
     if(page && page._children[componentName]){
       page._children[componentName].splice(page._children[componentName].indexOf(component) >>> 0, 1);

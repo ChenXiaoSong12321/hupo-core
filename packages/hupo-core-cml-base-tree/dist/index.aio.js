@@ -1,5 +1,5 @@
 /*!
- * @hupo/core-cml-base-tree 0.0.2 
+ * @hupo/core-cml-base-tree 0.1.1 
  * Copyright 2019 . All Rights Reserved
  */
 
@@ -10,11 +10,21 @@
 }(this, function (exports) { 'use strict';
 
   /*!
-   * @hupo/core-global 0.0.1 
+   * @hupo/core-global 0.0.5 
    * Copyright 2019 . All Rights Reserved
    */
   // hupo
-  var _global = typeof window === 'undefined' ? global : window;
+  var getGlobal = function getGlobal() {
+    if (typeof window === 'undefined') {
+      if (!global.$mall) global.$mall = {};
+      return global.$mall;
+    } else {
+      if (!window.$mall) window.$mall = {};
+      return window.$mall;
+    }
+  };
+
+  var _global = getGlobal();
 
   function _classCallCheck(instance, Constructor) {
     if (!(instance instanceof Constructor)) {
@@ -39,7 +49,7 @@
   }
 
   var getViewId = function getViewId(instance) {
-    return instance.__wxWebviewId__ || instance.$route.path;
+    return instance.__wxWebviewId__ || instance._uid;
   };
   var getComponentName = function getComponentName(instance) {
     return instance.__cml_originOptions__ ? instance.__cml_originOptions__.componentName : instance.$options.componentName;
@@ -82,7 +92,8 @@
           return;
         }
 
-        var viewId = getViewId(component);
+        var instance = component.$route ? component.$route.matched[0].instances["default"] : component;
+        var viewId = getViewId(instance);
         var page = this.pages[viewId];
         if (!page._children[componentName]) page._children[componentName] = [];
 
@@ -100,7 +111,7 @@
           return;
         }
 
-        var viewId = getViewId(component);
+        var viewId = getViewId(component._page);
         var page = this.pages[viewId];
 
         if (page && page._children[componentName]) {
