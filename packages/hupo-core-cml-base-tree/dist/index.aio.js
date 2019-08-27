@@ -1,5 +1,5 @@
 /*!
- * @hupo/core-cml-base-tree 0.1.1 
+ * @hupo/core-cml-base-tree 0.1.2 
  * Copyright 2019 . All Rights Reserved
  */
 
@@ -125,19 +125,19 @@
 
   var component = {
     created: function created() {
-      global._baseTree.addComponent(this);
+      _global._baseTree.addComponent(this);
     },
     beforeDestroy: function beforeDestroy() {
-      global._baseTree.removeComponent(this);
+      _global._baseTree.removeComponent(this);
     }
   };
 
   var page = {
     created: function created() {
-      global._baseTree.addPage(this);
+      _global._baseTree.addPage(this);
     },
     beforeDestroy: function beforeDestroy() {
-      global._baseTree.removePage(this);
+      _global._baseTree.removePage(this);
     }
   };
 

@@ -1,9 +1,9 @@
 /*!
- * @hupo/core-cml-base-tree 0.1.1 
+ * @hupo/core-cml-base-tree 0.1.2 
  * Copyright 2019 . All Rights Reserved
  */
 
-import global$1 from '@hupo/core-global';
+import global from '@hupo/core-global';
 
 function _classCallCheck(instance, Constructor) {
   if (!(instance instanceof Constructor)) {
@@ -120,6 +120,6 @@ var page = {
   }
 };
 
-global$1._baseTree = new BaseTree();
+global._baseTree = new BaseTree();
 
 export { component as componentBaseTreeMixin, page as pageBaseTreeMixin };

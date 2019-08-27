@@ -1,5 +1,5 @@
 /*!
- * @hupo/core-cml-base-tree 0.1.1 
+ * @hupo/core-cml-base-tree 0.1.2 
  * Copyright 2019 . All Rights Reserved
  */
 
@@ -9,7 +9,7 @@ Object.defineProperty(exports, '__esModule', { value: true });
 
 function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
 
-var global$1 = _interopDefault(require('@hupo/core-global'));
+var global = _interopDefault(require('@hupo/core-global'));
 
 function _classCallCheck(instance, Constructor) {
   if (!(instance instanceof Constructor)) {
@@ -126,7 +126,7 @@ var page = {
   }
 };
 
-global$1._baseTree = new BaseTree();
+global._baseTree = new BaseTree();
 
 exports.componentBaseTreeMixin = component;
 exports.pageBaseTreeMixin = page;
