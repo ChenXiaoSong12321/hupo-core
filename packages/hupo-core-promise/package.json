@@ -67,5 +67,8 @@
   },
   "dependencies": {
     "@hupo/core-global": "file:../hupo-core-global"
+  },
+  "publishConfig": {
+    "registry": "https://nexus.hupovip.cn/repository/hp-npm/"
   }
 }

@@ -68,5 +68,8 @@
   "dependencies": {
     "dayjs": "^1.8.15",
     "dayjs-plugin-utc": "^0.1.2"
+  },
+  "publishConfig": {
+    "registry": "https://nexus.hupovip.cn/repository/hp-npm/"
   }
 }
