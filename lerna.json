@@ -7,6 +7,10 @@
       "hupo": "https://nexus.hupovip.cn/repository/hp-npm/"
     }
   },
-  "registry": "https://nexus.hupovip.cn/repository/hp-npm/",
+  "command": {
+    "publish": {
+      "registry": "https://nexus.hupovip.cn/repository/hp-npm/"
+    }
+  },
   "version": "0.1.7"
 }

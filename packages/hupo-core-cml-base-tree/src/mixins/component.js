@@ -1,6 +1,6 @@
 import global from '@hupo/core-global'
 export default {
-  created() {
+  mounted() {
     global._baseTree.addComponent(this)
   },
   beforeDestroy() {

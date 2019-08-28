@@ -1,6 +1,6 @@
 import global from '@hupo/core-global'
 export default {
-  created() {
+  beforeCreate() {
     global._baseTree.addPage(this)
   },
   beforeDestroy() {
