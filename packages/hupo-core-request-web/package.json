@@ -1,6 +1,6 @@
 {
   "name": "@hupo/core-request-web",
-  "version": "0.1.15",
+  "version": "0.1.16",
   "description": "",
   "main": "dist/index.js",
   "jsnext:main": "dist/index.esm.js",
@@ -69,7 +69,7 @@
     "typescript": "^3.5.3"
   },
   "dependencies": {
-    "@hupo/core-request-base": "^0.1.13",
+    "@hupo/core-request-base": "^0.1.16",
     "axios": "^0.19.0"
   },
   "gitHead": "c741748c9aa09ecb31953c30273c6d532bb9a319"
