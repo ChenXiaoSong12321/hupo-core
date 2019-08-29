@@ -1,5 +1,5 @@
 /*!
- * @hupo/core-timer 0.1.5 
+ * @hupo/core-timer 0.1.8 
  * Copyright 2019 . All Rights Reserved
  */
 
@@ -18,8 +18,11 @@
     methods: {
       _setTimeout: function _setTimeout(fn, delay) {
         if (!this.__setTimeout__) this.__setTimeout__ = [];
+        var timer = setTimeout(fn, delay);
 
-        this.__setTimeout__.push(setTimeout(fn, delay));
+        this.__setTimeout__.push(timer);
+
+        return timer;
       }
     }
   };
