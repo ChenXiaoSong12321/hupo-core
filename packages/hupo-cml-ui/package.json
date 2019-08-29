@@ -1,6 +1,6 @@
 {
   "name": "@hupo/cml-ui",
-  "version": "0.1.6",
+  "version": "0.1.14",
   "description": "hupo ui基础组件库&接口能力",
   "main": "packages/components",
   "scripts": {
