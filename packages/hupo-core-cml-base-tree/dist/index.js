@@ -1,5 +1,5 @@
 /*!
- * @hupo/core-cml-base-tree 0.1.4 
+ * @hupo/core-cml-base-tree 0.1.11 
  * Copyright 2019 . All Rights Reserved
  */
 
@@ -37,7 +37,7 @@ var getViewId = function getViewId(instance) {
   return instance.__wxWebviewId__ || instance._uid;
 };
 var getComponentName = function getComponentName(instance) {
-  return instance.__cml_originOptions__ ? instance.__cml_originOptions__.componentName : instance.$options.componentName;
+  return instance.__cml_originOptions__ ? instance.__cml_originOptions__.name : instance.$options.name;
 };
 
 var BaseTree =
@@ -70,37 +70,37 @@ function () {
   }, {
     key: "addComponent",
     value: function addComponent(component) {
-      var componentName = getComponentName(component);
+      var name = getComponentName(component);
 
-      if (!componentName) {
-        console.warn('you have to add componentName of component', component);
+      if (!name) {
+        console.warn('you have to add name of component', component);
         return;
       }
 
       var instance = component.$route ? component.$route.matched[0].instances["default"] : component;
       var viewId = getViewId(instance);
       var page = this.pages[viewId];
-      if (!page._children[componentName]) page._children[componentName] = [];
+      if (!page._children[name]) page._children[name] = [];
 
-      page._children[componentName].push(component);
+      page._children[name].push(component);
 
       component._page = page;
     }
   }, {
     key: "removeComponent",
     value: function removeComponent(component) {
-      var componentName = getComponentName(component);
+      var name = getComponentName(component);
 
-      if (!componentName) {
-        console.warn('you have to add componentName of component', component);
+      if (!name) {
+        console.warn('you have to add name of component', component);
         return;
       }
 
       var viewId = getViewId(component._page);
       var page = this.pages[viewId];
 
-      if (page && page._children[componentName]) {
-        page._children[componentName].splice(page._children[componentName].indexOf(component) >>> 0, 1);
+      if (page && page._children[name]) {
+        page._children[name].splice(page._children[name].indexOf(component) >>> 0, 1);
       }
     }
   }]);
@@ -109,7 +109,7 @@ function () {
 }();
 
 var component = {
-  created: function created() {
+  mounted: function mounted() {
     global._baseTree.addComponent(this);
   },
   beforeDestroy: function beforeDestroy() {
@@ -118,7 +118,7 @@ var component = {
 };
 
 var page = {
-  created: function created() {
+  beforeCreate: function beforeCreate() {
     global._baseTree.addPage(this);
   },
   beforeDestroy: function beforeDestroy() {

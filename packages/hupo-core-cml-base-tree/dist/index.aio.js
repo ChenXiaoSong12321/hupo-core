@@ -1,15 +1,30 @@
 /*!
- * @hupo/core-cml-base-tree 0.1.4 
+ * @hupo/core-cml-base-tree 0.1.11 
  * Copyright 2019 . All Rights Reserved
  */
 
 (function (global, factory) {
-  typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@hupo/core-global')) :
-  typeof define === 'function' && define.amd ? define(['exports', '@hupo/core-global'], factory) :
-  (global = global || self, factory(global['core-cml-base-tree'] = {}, global.global));
-}(this, function (exports, global) { 'use strict';
+  typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
+  typeof define === 'function' && define.amd ? define(['exports'], factory) :
+  (global = global || self, factory(global['core-cml-base-tree'] = {}));
+}(this, function (exports) { 'use strict';
 
-  global = global && global.hasOwnProperty('default') ? global['default'] : global;
+  /*!
+   * @hupo/core-global 0.1.4 
+   * Copyright 2019 . All Rights Reserved
+   */
+  // hupo
+  var getGlobal = function getGlobal() {
+    if (typeof window === 'undefined') {
+      if (!global.$mall) global.$mall = {};
+      return global.$mall;
+    } else {
+      if (!window.$mall) window.$mall = {};
+      return window.$mall;
+    }
+  };
+
+  var _global = getGlobal();
 
   function _classCallCheck(instance, Constructor) {
     if (!(instance instanceof Constructor)) {
@@ -37,7 +52,7 @@
     return instance.__wxWebviewId__ || instance._uid;
   };
   var getComponentName = function getComponentName(instance) {
-    return instance.__cml_originOptions__ ? instance.__cml_originOptions__.componentName : instance.$options.componentName;
+    return instance.__cml_originOptions__ ? instance.__cml_originOptions__.name : instance.$options.name;
   };
 
   var BaseTree =
@@ -70,37 +85,37 @@
     }, {
       key: "addComponent",
       value: function addComponent(component) {
-        var componentName = getComponentName(component);
+        var name = getComponentName(component);
 
-        if (!componentName) {
-          console.warn('you have to add componentName of component', component);
+        if (!name) {
+          console.warn('you have to add name of component', component);
           return;
         }
 
         var instance = component.$route ? component.$route.matched[0].instances["default"] : component;
         var viewId = getViewId(instance);
         var page = this.pages[viewId];
-        if (!page._children[componentName]) page._children[componentName] = [];
+        if (!page._children[name]) page._children[name] = [];
 
-        page._children[componentName].push(component);
+        page._children[name].push(component);
 
         component._page = page;
       }
     }, {
       key: "removeComponent",
       value: function removeComponent(component) {
-        var componentName = getComponentName(component);
+        var name = getComponentName(component);
 
-        if (!componentName) {
-          console.warn('you have to add componentName of component', component);
+        if (!name) {
+          console.warn('you have to add name of component', component);
           return;
         }
 
         var viewId = getViewId(component._page);
         var page = this.pages[viewId];
 
-        if (page && page._children[componentName]) {
-          page._children[componentName].splice(page._children[componentName].indexOf(component) >>> 0, 1);
+        if (page && page._children[name]) {
+          page._children[name].splice(page._children[name].indexOf(component) >>> 0, 1);
         }
       }
     }]);
@@ -109,24 +124,24 @@
   }();
 
   var component = {
-    created: function created() {
-      global._baseTree.addComponent(this);
+    mounted: function mounted() {
+      _global._baseTree.addComponent(this);
     },
     beforeDestroy: function beforeDestroy() {
-      global._baseTree.removeComponent(this);
+      _global._baseTree.removeComponent(this);
     }
   };
 
   var page = {
-    created: function created() {
-      global._baseTree.addPage(this);
+    beforeCreate: function beforeCreate() {
+      _global._baseTree.addPage(this);
     },
     beforeDestroy: function beforeDestroy() {
-      global._baseTree.removePage(this);
+      _global._baseTree.removePage(this);
     }
   };
 
-  global._baseTree = new BaseTree();
+  _global._baseTree = new BaseTree();
 
   exports.componentBaseTreeMixin = component;
   exports.pageBaseTreeMixin = page;

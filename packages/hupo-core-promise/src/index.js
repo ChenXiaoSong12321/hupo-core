@@ -1,5 +1,5 @@
 import global from '@hupo/core-global'
-export const exit = error => Promise.reject(new Error(error))
+export const exit = message => Promise.reject(new Error(message))
 export const cache = async (id, promise) => {
   if (!global.promise) global.promise = {}
   if (!global.promise[id]) {
