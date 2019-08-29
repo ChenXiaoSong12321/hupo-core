@@ -69,7 +69,8 @@
     "typescript": "^3.5.3"
   },
   "dependencies": {
-    "@hupo/core-request-base": "file:../hupo-core-request-base",
+    "@hupo/core-request-base": "^0.1.13",
     "axios": "^0.19.0"
-  }
+  },
+  "gitHead": "c741748c9aa09ecb31953c30273c6d532bb9a319"
 }
