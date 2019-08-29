@@ -1,0 +1,98 @@
+<template>
+  <h-page title="h-pagination 演示" fixed>
+    <view class="container">
+      <h-pagination
+        c-bind:pulldown="pulldown"
+        c-bind:pullup="pullup"
+        start="{{start}}"
+        step="{{step}}"
+        pageCount="{{pageCount}}"
+        total="{{list.length}}"
+        list="{{list}}"
+      >
+        <view c-for="{{list}}" class="list-item">{{item}}</view>
+        <view slot="empty">empty</view>
+      </h-pagination>
+    </view>
+  </h-page>
+</template>
+<script>
+import pageMixin from '../../../core/mixins/page/index.js'
+import Pagination from '../../../core/mixins/common/pagination.js'
+let i=0
+export default {
+  mixins: [...pageMixin, Pagination],
+  data: {
+    list: [],
+    start: '1231231231231',
+    step: 12312312,
+    pageCount: 20
+  },
+  watch: {
+    list(n){
+      console.log('list:',[...n])
+      this._stopRefresh()
+    }
+  },
+  mounted(){
+    this.createList(20)
+  },
+  methods: {
+    pulldown(e){
+      console.log('pulldown',e.detail)
+      this.list = []
+      this.createList(20)
+      i=0
+    },
+    pullup(e){
+      console.log('pullup',e.detail)
+      setTimeout(() => {
+        if(i<2){
+          this.createList(20)
+          i++
+        }
+        if(i===2){
+          this.createList(1)
+        }
+      }, 1000);
+    },
+    createList(len=20){
+      let list = []
+      for(let i = 0;i<len;i++){
+        list.push(Math.random())
+      }
+      this.list = this.list.concat(list)
+    }
+  }
+}
+</script>
+<style scoped lang="scss">
+.container {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  align-items: center;
+  .list-item {
+    width: 730cpx;
+    height: 50cpx;
+    margin-top: 15cpx;
+    background-color: #e0e0e0;
+  }
+}
+</style>
+<script cml-type="json">
+{
+  "base": {
+    "usingComponents": {
+      "h-page": "/components/h-page/h-page",
+      "h-pagination": "/components/h-pagination/h-pagination"
+    },
+    "navigationBarTitleText": "h-pagination",
+    "backgroundTextStyle": "dark",
+    "backgroundColor": "#E2E2E2"
+  },
+  "wx": {
+    "enablePullDownRefresh": true
+  }
+}
+</script>
