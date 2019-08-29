@@ -7,7 +7,9 @@ export default {
   methods: {
     _setTimeout(fn, delay) {
       if (!this.__setTimeout__) this.__setTimeout__ = []
-      this.__setTimeout__.push(setTimeout(fn, delay))
+      let timer = setTimeout(fn, delay)
+      this.__setTimeout__.push(timer)
+      return timer
     }
   }
 }
