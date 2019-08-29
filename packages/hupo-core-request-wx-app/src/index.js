@@ -23,8 +23,8 @@ export const request = async _config => {
         success(response){
           response.config = config
           response.status = response.statusCode
-          response = filterResponse(response)
           filterError(response)
+          response = filterResponse(response)
           const data = complete(response, _config)
           resolve(data)
         },

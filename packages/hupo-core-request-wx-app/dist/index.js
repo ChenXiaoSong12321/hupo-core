@@ -1,5 +1,5 @@
 /*!
- * @hupo/core-request-mp 0.0.0 
+ * @hupo/core-request-wx-app 0.1.9 
  * Copyright 2019 . All Rights Reserved
  */
 
@@ -131,8 +131,8 @@ function () {
                 success: function success(response) {
                   response.config = config;
                   response.status = response.statusCode;
-                  response = coreRequestBase.filterResponse(response);
                   coreRequestBase.filterError(response);
+                  response = coreRequestBase.filterResponse(response);
                   var data = coreRequestBase.complete(response, _config);
                   resolve(data);
                 },

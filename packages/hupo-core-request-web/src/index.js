@@ -33,7 +33,7 @@ service.interceptors.response.use(
 )
 
 export const request = async config => {
-  const { options, data = {}, params = {}, headers = {}, timeout = TIME_OUT } = config
+  const { options, data = {}, params = {}, headers = {}, timeout = CONFIG.timeout } = config
   const response = await service({
     method: options.type,
     url: options.url,

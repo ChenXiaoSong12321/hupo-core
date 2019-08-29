@@ -1,9 +1,9 @@
 /*!
- * @hupo/core-request-mp 0.0.0 
+ * @hupo/core-request-wx-app 0.1.9 
  * Copyright 2019 . All Rights Reserved
  */
 
-import { defaultConfig, initialize as initialize$1, formatParams, pendding, filterResponse, filterError, complete } from '@hupo/core-request-base';
+import { defaultConfig, initialize as initialize$1, formatParams, pendding, filterError, filterResponse, complete } from '@hupo/core-request-base';
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {
   try {
@@ -127,8 +127,8 @@ function () {
                 success: function success(response) {
                   response.config = config;
                   response.status = response.statusCode;
-                  response = filterResponse(response);
                   filterError(response);
+                  response = filterResponse(response);
                   var data = complete(response, _config);
                   resolve(data);
                 },

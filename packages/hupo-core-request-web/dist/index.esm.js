@@ -1,5 +1,5 @@
 /*!
- * @hupo/core-request-web 0.0.0 
+ * @hupo/core-request-web 0.1.9 
  * Copyright 2019 . All Rights Reserved
  */
 
@@ -76,7 +76,7 @@ function () {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
-            options = config.options, _config$data = config.data, data = _config$data === void 0 ? {} : _config$data, _config$params = config.params, params = _config$params === void 0 ? {} : _config$params, _config$headers = config.headers, headers = _config$headers === void 0 ? {} : _config$headers, _config$timeout = config.timeout, timeout = _config$timeout === void 0 ? TIME_OUT : _config$timeout;
+            options = config.options, _config$data = config.data, data = _config$data === void 0 ? {} : _config$data, _config$params = config.params, params = _config$params === void 0 ? {} : _config$params, _config$headers = config.headers, headers = _config$headers === void 0 ? {} : _config$headers, _config$timeout = config.timeout, timeout = _config$timeout === void 0 ? CONFIG.timeout : _config$timeout;
             _context.next = 3;
             return service({
               method: options.type,

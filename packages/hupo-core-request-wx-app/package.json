@@ -1,5 +1,5 @@
 {
-  "name": "@hupo/core-request-mp",
+  "name": "@hupo/core-request-wx-app",
   "version": "0.1.9",
   "description": "",
   "main": "dist/index.aio.min.js",

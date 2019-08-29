@@ -1,12 +1,12 @@
 /*!
- * @hupo/core-request-mp 0.0.0 
+ * @hupo/core-request-wx-app 0.1.9 
  * Copyright 2019 . All Rights Reserved
  */
 
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
   typeof define === 'function' && define.amd ? define(['exports'], factory) :
-  (global = global || self, factory(global['core-request-mp'] = {}));
+  (global = global || self, factory(global['core-request-wx-app'] = {}));
 }(this, function (exports) { 'use strict';
 
   function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {
@@ -202,7 +202,7 @@
 
 
   var filterResponse = function filterResponse(response) {
-    console.groupCollapsed("%cresponse debug: %c".concat(response.config.options.url), 'color: #999', 'color: #0076ff');
+    console.groupCollapsed("%cresponse debug: %c".concat(response.config.url), 'color: #999', 'color: #0076ff');
     console.log(response.config);
     console.log(response.data);
     console.groupEnd();
@@ -345,8 +345,8 @@
                   success: function success(response) {
                     response.config = config;
                     response.status = response.statusCode;
-                    response = filterResponse(response);
                     filterError(response);
+                    response = filterResponse(response);
                     var data = complete(response, _config);
                     resolve(data);
                   },
