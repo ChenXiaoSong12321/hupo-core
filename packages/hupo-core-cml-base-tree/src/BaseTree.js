@@ -16,28 +16,28 @@ export default class BaseTree {
     delete this.pages[viewId]
   }
   addComponent(component){
-    const componentName = getComponentName(component)
-    if(!componentName){
-      console.warn('you have to add componentName of component', component)
+    const name = getComponentName(component)
+    if(!name){
+      console.warn('you have to add name of component', component)
       return
     }
     const instance = component.$route ? component.$route.matched[0].instances.default : component
     const viewId = getViewId(instance)
     const page = this.pages[viewId]
-    if(!page._children[componentName])page._children[componentName] = []
-    page._children[componentName].push(component)
+    if(!page._children[name])page._children[name] = []
+    page._children[name].push(component)
     component._page = page
   }
   removeComponent(component){
-    const componentName = getComponentName(component)
-    if(!componentName){
-      console.warn('you have to add componentName of component', component)
+    const name = getComponentName(component)
+    if(!name){
+      console.warn('you have to add name of component', component)
       return
     }
     const viewId = getViewId(component._page)
     const page = this.pages[viewId]
-    if(page && page._children[componentName]){
-      page._children[componentName].splice(page._children[componentName].indexOf(component) >>> 0, 1);
+    if(page && page._children[name]){
+      page._children[name].splice(page._children[name].indexOf(component) >>> 0, 1);
     }
   }
 }
