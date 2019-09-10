@@ -1,6 +1,10 @@
 {
   "name": "core",
   "private": true,
+  "scripts": {
+    "build": "lerna run build",
+    "init": "lerna bootstrap"
+  },
   "devDependencies": {
     "lerna": "^3.16.4"
   }
