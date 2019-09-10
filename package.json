@@ -1,5 +1,5 @@
 {
-  "name": "root",
+  "name": "core",
   "private": true,
   "scripts": {
     "version": "lerna version",
