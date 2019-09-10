@@ -1,6 +1,6 @@
 {
   "name": "@hupo/core-global",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "description": "",
   "scripts": {
     "init": "lerna bootstrap",
