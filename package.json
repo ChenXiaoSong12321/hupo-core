@@ -1,12 +1,6 @@
 {
   "name": "core",
   "private": true,
-  "scripts": {
-    "version": "lerna version",
-    "build": "lerna run build",
-    "init": "lerna bootstrap",
-    "publish": "lerna publish"
-  },
   "devDependencies": {
     "lerna": "^3.16.4"
   }
