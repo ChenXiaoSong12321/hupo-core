@@ -1,0 +1,32 @@
+{
+  "name": "@hupo/core",
+  "description": "",
+  "version": "0.0.0",
+  "files": [
+    "dist-*/",
+    "bin/"
+  ],
+  "pika": true,
+  "sideEffects": false,
+  "dependencies": {
+    "@hupo/core-cml-base-tree": "file:../hupo-core-cml-base-tree",
+    "@hupo/core-cml-event": "file:../hupo-core-cml-event",
+    "@hupo/core-dayjs": "file:../hupo-core-dayjs",
+    "@hupo/core-global": "file:../hupo-core-global",
+    "@hupo/core-promise": "file:../hupo-core-promise",
+    "@hupo/core-timer": "file:../hupo-core-timer",
+    "@hupo/core-wx-app-tools": "file:../hupo-core-wx-app-tools"
+  },
+  "devDependencies": {
+    "@babel/plugin-transform-runtime": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "babel-plugin-istanbul": "^5.2.0",
+    "@pika/pack": "^0.5.0",
+    "@pika/plugin-build-node": "^0.6.0",
+    "@pika/plugin-standard-pkg": "^0.6.0",
+    "@pika/types": "^0.6.0",
+    "@types/node": "^10.12.18"
+  },
+  "esnext": "dist-src/index.js",
+  "main": "dist-node/index.js"
+}
