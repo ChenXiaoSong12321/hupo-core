@@ -6,7 +6,6 @@
     "init": "lerna bootstrap",
     "build": "pika-pack build"
   },
-  "module": "pkg/dist-src/index.js",
   "esnext": "pkg/dist-src/index.js",
   "main": "pkg/dist-node/index.js",
   "author": "hupo",
@@ -36,7 +35,11 @@
     "@hupo/core-dayjs": "file:../hupo-core-dayjs",
     "@hupo/core-global": "file:../hupo-core-global",
     "@hupo/core-promise": "file:../hupo-core-promise",
+    "@hupo/core-request-base": "file:../hupo-core-request-base",
+    "@hupo/core-request-web": "file:../hupo-core-request-web",
+    "@hupo/core-request-wx-app": "file:../hupo-core-request-wx-app",
     "@hupo/core-timer": "file:../hupo-core-timer",
+    "@hupo/core-url": "file:../hupo-core-url",
     "@hupo/core-wx-app-tools": "file:../hupo-core-wx-app-tools"
   }
 }

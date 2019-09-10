@@ -5,3 +5,7 @@ export { componentBaseTreeMixin, pageBaseTreeMixin } from "@hupo/core-cml-base-t
 export { Event, componentEventMixin, pageEventMixin } from "@hupo/core-cml-event";
 export { default as dayjs } from "@hupo/core-dayjs";
 export { default as timer } from "@hupo/core-timer";
+export { default as url } from "@hupo/core-url";
+export { default as requestBase } from "@hupo/core-request-base";
+export { default as requestWeb } from "@hupo/core-request-web";
+export { default as requestWxapp } from "@hupo/core-request-wx-app";

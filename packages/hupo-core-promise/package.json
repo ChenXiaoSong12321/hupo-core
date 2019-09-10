@@ -6,7 +6,6 @@
     "init": "lerna bootstrap",
     "build": "pika-pack build"
   },
-  "module": "pkg/dist-src/index.js",
   "esnext": "pkg/dist-src/index.js",
   "main": "pkg/dist-node/index.js",
   "author": "hupo",

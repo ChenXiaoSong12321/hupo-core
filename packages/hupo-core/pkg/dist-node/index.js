@@ -11,6 +11,10 @@ var coreCmlBaseTree = require('@hupo/core-cml-base-tree');
 var coreCmlEvent = require('@hupo/core-cml-event');
 var coreDayjs = _interopDefault(require('@hupo/core-dayjs'));
 var coreTimer = _interopDefault(require('@hupo/core-timer'));
+var coreUrl = _interopDefault(require('@hupo/core-url'));
+var coreRequestBase = _interopDefault(require('@hupo/core-request-base'));
+var coreRequestWeb = _interopDefault(require('@hupo/core-request-web'));
+var coreRequestWxApp = _interopDefault(require('@hupo/core-request-wx-app'));
 
 
 
@@ -49,4 +53,8 @@ Object.defineProperty(exports, 'pageEventMixin', {
 });
 exports.dayjs = coreDayjs;
 exports.timer = coreTimer;
+exports.url = coreUrl;
+exports.requestBase = coreRequestBase;
+exports.requestWeb = coreRequestWeb;
+exports.requestWxapp = coreRequestWxApp;
 //# sourceMappingURL=index.js.map
