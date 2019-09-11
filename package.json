@@ -2,7 +2,7 @@
   "name": "core",
   "private": true,
   "scripts": {
-    "build": "lerna run build",
+    "build": "lerna version && lerna run build",
     "publish": "lerna publish --contents pkg",
     "init": "lerna bootstrap"
   },
