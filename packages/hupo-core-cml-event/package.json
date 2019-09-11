@@ -1,6 +1,6 @@
 {
   "name": "@hupo/core-cml-event",
-  "version": "0.2.7",
+  "version": "0.2.8",
   "description": "",
   "scripts": {
     "init": "lerna bootstrap",
