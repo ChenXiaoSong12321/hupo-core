@@ -1,6 +1,6 @@
 {
   "name": "@hupo/core-cml-base-tree",
-  "version": "0.2.5",
+  "version": "0.2.6",
   "description": "",
   "scripts": {
     "init": "lerna bootstrap",
