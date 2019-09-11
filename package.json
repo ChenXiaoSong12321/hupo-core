@@ -2,8 +2,7 @@
   "name": "core",
   "private": true,
   "scripts": {
-    "build": "lerna version && lerna run build && git add . && git commit -m build",
-    "publish": "lerna publish --contents pkg",
+    "build": "lerna run build",
     "init": "lerna bootstrap"
   },
   "publishConfig": {
