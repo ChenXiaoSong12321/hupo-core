@@ -1,7 +1,7 @@
 {
   "name": "@hupo/core",
   "description": "",
-  "version": "0.2.7",
+  "version": "0.2.10",
   "files": [
     "dist-*/",
     "bin/"
@@ -9,17 +9,17 @@
   "pika": true,
   "sideEffects": false,
   "dependencies": {
-    "@hupo/core-cml-base-tree": "^0.2.7",
-    "@hupo/core-cml-event": "^0.2.7",
-    "@hupo/core-dayjs": "^0.2.7",
-    "@hupo/core-global": "^0.2.7",
-    "@hupo/core-promise": "^0.2.7",
-    "@hupo/core-request-base": "^0.2.7",
-    "@hupo/core-request-web": "^0.2.7",
-    "@hupo/core-request-wx-app": "^0.2.7",
-    "@hupo/core-timer": "^0.2.7",
-    "@hupo/core-url": "^0.2.7",
-    "@hupo/core-wx-app-tools": "^0.2.7"
+    "@hupo/core-cml-base-tree": "^0.2.9",
+    "@hupo/core-cml-event": "^0.2.9",
+    "@hupo/core-dayjs": "^0.2.9",
+    "@hupo/core-global": "^0.2.9",
+    "@hupo/core-promise": "^0.2.9",
+    "@hupo/core-request-base": "^0.2.9",
+    "@hupo/core-request-web": "^0.2.9",
+    "@hupo/core-request-wx-app": "^0.2.9",
+    "@hupo/core-timer": "^0.2.9",
+    "@hupo/core-url": "^0.2.9",
+    "@hupo/core-wx-app-tools": "^0.2.9"
   },
   "devDependencies": {
     "@babel/plugin-transform-runtime": "^7.5.5",
