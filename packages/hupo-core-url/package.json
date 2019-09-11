@@ -1,6 +1,6 @@
 {
   "name": "@hupo/core-url",
-  "version": "0.2.8",
+  "version": "0.2.9",
   "description": "",
   "scripts": {
     "init": "lerna bootstrap",
