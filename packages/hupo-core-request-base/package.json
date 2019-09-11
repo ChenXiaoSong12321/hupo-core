@@ -1,6 +1,6 @@
 {
   "name": "@hupo/core-request-base",
-  "version": "0.2.9",
+  "version": "0.2.11",
   "description": "",
   "scripts": {
     "init": "lerna bootstrap",
