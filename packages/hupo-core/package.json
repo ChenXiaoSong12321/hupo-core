@@ -30,10 +30,14 @@
     "babel-plugin-istanbul": "^5.2.0"
   },
   "dependencies": {
+    "@hupo/core-channel": "file:../hupo-core-channel",
     "@hupo/core-cml-base-tree": "^0.2.12",
     "@hupo/core-cml-event": "^0.2.12",
+    "@hupo/core-cml-viewport": "file:../hupo-core-cml-viewport",
     "@hupo/core-dayjs": "^0.2.12",
+    "@hupo/core-format-utils": "file:../hupo-core-format-utils",
     "@hupo/core-global": "^0.2.12",
+    "@hupo/core-network-web": "file:../hupo-core-network-web",
     "@hupo/core-promise": "^0.2.12",
     "@hupo/core-request-base": "^0.2.12",
     "@hupo/core-request-web": "^0.2.12",
