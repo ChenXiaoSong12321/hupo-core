@@ -2,7 +2,7 @@ import loadScript from "@hupo/core-load-script-web";
 let isWx = typeof wx !== 'undefined';
 const isH5 = typeof window !== 'undefined';
 
-const isWechat = () => window.navigator.userAgent.toLowerCase().match(/MicroMessenger/i) === 'micromessenger';
+const isWechat = () => window.navigator.userAgent.toLowerCase().match(/MicroMessenger/i) == 'micromessenger';
 
 export const WX_H5 = 'WX_H5';
 export const H5 = 'H5';
