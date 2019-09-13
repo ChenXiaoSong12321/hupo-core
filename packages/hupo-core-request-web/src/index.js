@@ -1,5 +1,5 @@
 import axios from 'axios'
-import {initialize as baseInitialize, defaultConfig, formatParams, pendding, filterResponse, filterError, complete} from '@hupo/core-request-base'
+import { initialize as baseInitialize, defaultConfig, formatParams, pendding, filterResponse, filterError, complete } from '@hupo/core-request-base'
 
 // 超时
 const CONFIG = defaultConfig()

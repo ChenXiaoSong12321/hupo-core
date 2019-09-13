@@ -1,5 +1,5 @@
 import global from '@hupo/core-global'
-import {addUrlParam} from '@hupo/core-url'
+import { addUrlParam } from '@hupo/core-url'
 global.__request_pending__ = {}
 
 export const initialize = baseUrl => {
@@ -81,7 +81,7 @@ export const filterError = response => {
   if (response.status !== 200 && !message) {
     message = '系统繁忙，请稍后再试'
   }
-  if(message){
+  if (message) {
     return Promise.reject({
       message,
       response
@@ -101,20 +101,22 @@ export const complete = (responseData, config) => {
       case 0:
         // [ 示例 ] code === 0 代表没有错误
         return responseData.data
-      case -1:
+      case -1: {
         const error = {
           message: '系统错误',
           info: `${responseData.msg}: ${config.options.url}`,
           data: responseData
         }
         return Promise.reject(error)
-      default:
+      }
+      default: {
         const defaultError = {
           message: responseData.msg,
           info: `${responseData.msg}: ${config.options.url}`,
           data: responseData
         }
         return Promise.reject(defaultError)
+      }
     }
   }
 }

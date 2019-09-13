@@ -8,6 +8,11 @@
     "publish": "lerna publish"
   },
   "devDependencies": {
-    "lerna": "^3.16.4"
+    "lerna": "^3.16.4",
+    "babel-eslint": "^10.0.3",
+    "eslint": "^6.3.0",
+    "eslint-friendly-formatter": "^4.0.1",
+    "eslint-plugin-html": "^6.0.0",
+    "eslint-plugin-vue": "^5.2.3"
   }
 }

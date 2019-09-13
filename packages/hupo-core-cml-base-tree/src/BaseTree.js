@@ -1,43 +1,43 @@
-import {getViewId, getComponentName} from './utils'
+import { getViewId, getComponentName } from './utils'
 export default class BaseTree {
-  constructor(){
+  constructor() {
     this.initialize()
   }
-  initialize(){
+  initialize() {
     this.pages = {}
   }
-  addPage(page){
+  addPage(page) {
     const viewId = getViewId(page)
     page._children = {}
-    if(!this.pages[viewId])this.pages[viewId] = page
+    if (!this.pages[viewId]) this.pages[viewId] = page
   }
-  removePage(page){
+  removePage(page) {
     const viewId = getViewId(page)
     delete this.pages[viewId]
   }
-  addComponent(component){
+  addComponent(component) {
     const name = getComponentName(component)
-    if(!name){
+    if (!name) {
       console.warn('you have to add name of component', component)
       return
     }
     const instance = component.$route ? component.$route.matched[0].instances.default : component
     const viewId = getViewId(instance)
     const page = this.pages[viewId]
-    if(!page._children[name])page._children[name] = []
+    if (!page._children[name])page._children[name] = []
     page._children[name].push(component)
     component._page = page
   }
-  removeComponent(component){
+  removeComponent(component) {
     const name = getComponentName(component)
-    if(!name){
+    if (!name) {
       console.warn('you have to add name of component', component)
       return
     }
     const viewId = getViewId(component._page)
     const page = this.pages[viewId]
-    if(page && page._children[name]){
-      page._children[name].splice(page._children[name].indexOf(component) >>> 0, 1);
+    if (page && page._children[name]) {
+      page._children[name].splice(page._children[name].indexOf(component) >>> 0, 1)
     }
   }
 }

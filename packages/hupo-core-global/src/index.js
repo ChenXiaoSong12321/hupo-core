@@ -1,10 +1,10 @@
 // hupo
 const getGlobal = () => {
-  if(typeof window === 'undefined'){
-    if(!global.$mall)global.$mall = {}
+  if (typeof window === 'undefined') {
+    if (!global.$mall)global.$mall = {}
     return global.$mall
-  }else{
-    if(!window.$mall)window.$mall = {}
+  } else {
+    if (!window.$mall)window.$mall = {}
     return window.$mall
   }
 }

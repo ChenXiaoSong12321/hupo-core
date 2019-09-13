@@ -9,19 +9,19 @@ export default {
     delete this._event
   },
   methods: {
-    _getCurrentPageComponents(componentName){
+    _getCurrentPageComponents(componentName) {
       return this._page._children[componentName] || []
     },
-    _on(...arg){
+    _on(...arg) {
       this._event.on(...arg)
     },
-    _off(...arg){
+    _off(...arg) {
       this._event.off(...arg)
     },
-    _emit(...arg){
+    _emit(...arg) {
       this._event.emit(...arg)
     },
-    _broadcast(componentName, ...arg){
+    _broadcast(componentName, ...arg) {
       const components = this._getCurrentPageComponents(componentName)
       components.forEach(item => {
         item._event.emit(...arg)
