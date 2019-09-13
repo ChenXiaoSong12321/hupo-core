@@ -1,8 +1,10 @@
 node_modules
 config
+pkg/package.json
 demo
 src
 test
+babel.config.js
 .babelrc
 .editorconfig
 .eslintrc.js

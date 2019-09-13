@@ -1,14 +1,16 @@
 {
   "name": "@hupo/core-request-web",
   "description": "",
-  "version": "0.0.0",
+  "version": "0.2.13",
   "files": [
     "dist-*/",
     "bin/"
   ],
   "pika": true,
   "sideEffects": false,
-  "dependencies": {},
+  "dependencies": {
+    "axios": "^0.19.0"
+  },
   "devDependencies": {
     "@babel/plugin-transform-runtime": "^7.5.5",
     "@babel/preset-env": "^7.5.5",
@@ -17,8 +19,10 @@
     "@pika/plugin-standard-pkg": "^0.6.0",
     "@pika/types": "^0.6.0",
     "@types/node": "^10.12.18",
-    "axios": "^0.19.0",
     "babel-plugin-istanbul": "^5.2.0"
+  },
+  "publishConfig": {
+    "registry": "https://nexus.hupovip.cn/repository/hp-npm/"
   },
   "esnext": "dist-src/index.js",
   "main": "dist-node/index.js"

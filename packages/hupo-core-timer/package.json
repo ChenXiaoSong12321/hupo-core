@@ -1,12 +1,11 @@
 {
   "name": "@hupo/core-timer",
-  "version": "0.1.16",
+  "version": "0.2.14",
   "description": "",
   "scripts": {
     "init": "lerna bootstrap",
     "build": "pika-pack build"
   },
-  "module": "pkg/dist-src/index.js",
   "esnext": "pkg/dist-src/index.js",
   "main": "pkg/dist-node/index.js",
   "author": "hupo",
@@ -29,5 +28,9 @@
     "@pika/types": "^0.6.0",
     "@types/node": "^10.12.18",
     "babel-plugin-istanbul": "^5.2.0"
-  }
+  },
+  "publishConfig": {
+    "registry": "https://nexus.hupovip.cn/repository/hp-npm/"
+  },
+  "gitHead": "ddec4904e617d66a816010381fca7e47e9ae6365"
 }

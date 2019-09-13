@@ -1,12 +1,11 @@
 {
   "name": "@hupo/core",
-  "version": "0.1.16",
+  "version": "0.2.14",
   "description": "",
   "scripts": {
     "init": "lerna bootstrap",
     "build": "pika-pack build"
   },
-  "module": "pkg/dist-src/index.js",
   "esnext": "pkg/dist-src/index.js",
   "main": "pkg/dist-node/index.js",
   "author": "hupo",
@@ -31,12 +30,24 @@
     "babel-plugin-istanbul": "^5.2.0"
   },
   "dependencies": {
-    "@hupo/core-cml-base-tree": "file:../hupo-core-cml-base-tree",
-    "@hupo/core-cml-event": "file:../hupo-core-cml-event",
-    "@hupo/core-dayjs": "file:../hupo-core-dayjs",
-    "@hupo/core-global": "file:../hupo-core-global",
-    "@hupo/core-promise": "file:../hupo-core-promise",
-    "@hupo/core-timer": "file:../hupo-core-timer",
-    "@hupo/core-wx-app-tools": "file:../hupo-core-wx-app-tools"
-  }
+    "@hupo/core-channel": "file:../hupo-core-channel",
+    "@hupo/core-cml-base-tree": "^0.2.14",
+    "@hupo/core-cml-event": "^0.2.14",
+    "@hupo/core-cml-viewport": "file:../hupo-core-cml-viewport",
+    "@hupo/core-dayjs": "^0.2.14",
+    "@hupo/core-format-utils": "file:../hupo-core-format-utils",
+    "@hupo/core-global": "^0.2.14",
+    "@hupo/core-network-web": "file:../hupo-core-network-web",
+    "@hupo/core-promise": "^0.2.14",
+    "@hupo/core-request-base": "^0.2.14",
+    "@hupo/core-request-web": "^0.2.14",
+    "@hupo/core-request-wx-app": "^0.2.14",
+    "@hupo/core-timer": "^0.2.14",
+    "@hupo/core-url": "^0.2.14",
+    "@hupo/core-wx-app-tools": "^0.2.14"
+  },
+  "publishConfig": {
+    "registry": "https://nexus.hupovip.cn/repository/hp-npm/"
+  },
+  "gitHead": "ddec4904e617d66a816010381fca7e47e9ae6365"
 }

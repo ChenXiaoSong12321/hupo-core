@@ -11,7 +11,7 @@ const cache = async (id, promise) => {
   if (!global.promise) global.promise = {};
 
   if (!global.promise[id]) {
-    global.promise[id] = promise();
+    global.promise[id] = promise;
   }
 
   try {

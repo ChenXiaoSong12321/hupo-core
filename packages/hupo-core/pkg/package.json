@@ -1,7 +1,7 @@
 {
   "name": "@hupo/core",
   "description": "",
-  "version": "0.0.0",
+  "version": "0.2.13",
   "files": [
     "dist-*/",
     "bin/"
@@ -9,23 +9,34 @@
   "pika": true,
   "sideEffects": false,
   "dependencies": {
-    "@hupo/core-cml-base-tree": "file:../hupo-core-cml-base-tree",
-    "@hupo/core-cml-event": "file:../hupo-core-cml-event",
-    "@hupo/core-dayjs": "file:../hupo-core-dayjs",
-    "@hupo/core-global": "file:../hupo-core-global",
-    "@hupo/core-promise": "file:../hupo-core-promise",
-    "@hupo/core-timer": "file:../hupo-core-timer",
-    "@hupo/core-wx-app-tools": "file:../hupo-core-wx-app-tools"
+    "@hupo/core-channel": "file:../hupo-core-channel",
+    "@hupo/core-cml-base-tree": "^0.2.13",
+    "@hupo/core-cml-event": "^0.2.13",
+    "@hupo/core-cml-viewport": "file:../hupo-core-cml-viewport",
+    "@hupo/core-dayjs": "^0.2.13",
+    "@hupo/core-format-utils": "file:../hupo-core-format-utils",
+    "@hupo/core-global": "^0.2.13",
+    "@hupo/core-network-web": "file:../hupo-core-network-web",
+    "@hupo/core-promise": "^0.2.13",
+    "@hupo/core-request-base": "^0.2.13",
+    "@hupo/core-request-web": "^0.2.13",
+    "@hupo/core-request-wx-app": "^0.2.13",
+    "@hupo/core-timer": "^0.2.13",
+    "@hupo/core-url": "^0.2.13",
+    "@hupo/core-wx-app-tools": "^0.2.13"
   },
   "devDependencies": {
     "@babel/plugin-transform-runtime": "^7.5.5",
     "@babel/preset-env": "^7.5.5",
-    "babel-plugin-istanbul": "^5.2.0",
     "@pika/pack": "^0.5.0",
     "@pika/plugin-build-node": "^0.6.0",
     "@pika/plugin-standard-pkg": "^0.6.0",
     "@pika/types": "^0.6.0",
-    "@types/node": "^10.12.18"
+    "@types/node": "^10.12.18",
+    "babel-plugin-istanbul": "^5.2.0"
+  },
+  "publishConfig": {
+    "registry": "https://nexus.hupovip.cn/repository/hp-npm/"
   },
   "esnext": "dist-src/index.js",
   "main": "dist-node/index.js"

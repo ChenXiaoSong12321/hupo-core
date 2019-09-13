@@ -1,7 +1,7 @@
 {
   "name": "@hupo/core-cml-event",
   "description": "",
-  "version": "0.0.0",
+  "version": "0.2.13",
   "files": [
     "dist-*/",
     "bin/"
@@ -18,6 +18,9 @@
     "@pika/types": "^0.6.0",
     "@types/node": "^10.12.18",
     "babel-plugin-istanbul": "^5.2.0"
+  },
+  "publishConfig": {
+    "registry": "https://nexus.hupovip.cn/repository/hp-npm/"
   },
   "esnext": "dist-src/index.js",
   "main": "dist-node/index.js"
