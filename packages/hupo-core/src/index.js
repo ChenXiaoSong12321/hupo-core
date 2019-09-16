@@ -12,6 +12,7 @@ export { default as url} from "@hupo/core-url";
 export { default as requestBase} from "@hupo/core-request-base";
 export { default as viewport} from "@hupo/core-cml-viewport";
 export { default as getNetworkType} from "@hupo/core-network-web";
+export { default as loadScript} from "@hupo/core-load-script-web";
 
 export const requestWxapp = {
   request: requestWxapp$request,

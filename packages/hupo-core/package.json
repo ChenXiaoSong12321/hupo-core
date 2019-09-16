@@ -37,6 +37,7 @@
     "@hupo/core-dayjs": "^0.2.14",
     "@hupo/core-format-utils": "file:../hupo-core-format-utils",
     "@hupo/core-global": "^0.2.14",
+    "@hupo/core-load-script-web": "file:../hupo-core-load-script-web",
     "@hupo/core-network-web": "file:../hupo-core-network-web",
     "@hupo/core-promise": "^0.2.14",
     "@hupo/core-request-base": "^0.2.14",
