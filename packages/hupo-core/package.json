@@ -1,6 +1,6 @@
 {
   "name": "@hupo/core",
-  "version": "0.2.14",
+  "version": "0.2.15",
   "description": "",
   "scripts": {
     "init": "lerna bootstrap",
@@ -31,21 +31,21 @@
   },
   "dependencies": {
     "@hupo/core-channel": "file:../hupo-core-channel",
-    "@hupo/core-cml-base-tree": "^0.2.14",
-    "@hupo/core-cml-event": "^0.2.14",
+    "@hupo/core-cml-base-tree": "^0.2.15",
+    "@hupo/core-cml-event": "^0.2.15",
     "@hupo/core-cml-viewport": "file:../hupo-core-cml-viewport",
-    "@hupo/core-dayjs": "^0.2.14",
+    "@hupo/core-dayjs": "^0.2.15",
     "@hupo/core-format-utils": "file:../hupo-core-format-utils",
-    "@hupo/core-global": "^0.2.14",
+    "@hupo/core-global": "^0.2.15",
     "@hupo/core-load-script-web": "file:../hupo-core-load-script-web",
     "@hupo/core-network-web": "file:../hupo-core-network-web",
-    "@hupo/core-promise": "^0.2.14",
-    "@hupo/core-request-base": "^0.2.14",
-    "@hupo/core-request-web": "^0.2.14",
-    "@hupo/core-request-wx-app": "^0.2.14",
-    "@hupo/core-timer": "^0.2.14",
-    "@hupo/core-url": "^0.2.14",
-    "@hupo/core-wx-app-tools": "^0.2.14"
+    "@hupo/core-promise": "^0.2.15",
+    "@hupo/core-request-base": "^0.2.15",
+    "@hupo/core-request-web": "^0.2.15",
+    "@hupo/core-request-wx-app": "^0.2.15",
+    "@hupo/core-timer": "^0.2.15",
+    "@hupo/core-url": "^0.2.15",
+    "@hupo/core-wx-app-tools": "^0.2.15"
   },
   "publishConfig": {
     "registry": "https://nexus.hupovip.cn/repository/hp-npm/"

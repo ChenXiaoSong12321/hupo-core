@@ -1,6 +1,6 @@
 {
   "name": "@hupo/core-load-script-web",
-  "version": "0.2.14",
+  "version": "0.2.15",
   "description": "",
   "scripts": {
     "init": "lerna bootstrap",
