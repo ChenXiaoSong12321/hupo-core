@@ -28,11 +28,10 @@ export const request = async _config => {
           resolve(data)
         },
         fail(error) {
-          console.error('看看错误数据结构', error)
           reject(error)
         }
       })
-      pendding(config, request.abort)
+      pendding(config, () => request.abort())
     })
   }
 }

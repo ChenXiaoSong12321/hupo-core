@@ -1,4 +1,4 @@
-import loadScript from "@hupo/core-load-script-web";
+import loadScript from '@hupo/core-load-script-web';
 let isWx = typeof wx !== 'undefined';
 const isH5 = typeof window !== 'undefined';
 

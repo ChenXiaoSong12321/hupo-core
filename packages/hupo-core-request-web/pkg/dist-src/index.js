@@ -20,6 +20,8 @@ service.interceptors.response.use(response => filterResponse(response), error =>
       filterError(error.response);
     }
   }
+
+  return Promise.reject(error);
 });
 export const request = async config => {
   const {

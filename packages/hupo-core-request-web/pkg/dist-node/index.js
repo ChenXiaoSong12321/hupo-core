@@ -26,6 +26,8 @@ service.interceptors.response.use(response => coreRequestBase.filterResponse(res
       coreRequestBase.filterError(error.response);
     }
   }
+
+  return Promise.reject(error);
 });
 const request = async config => {
   const {

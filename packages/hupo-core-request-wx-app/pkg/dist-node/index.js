@@ -83,12 +83,11 @@ const request = async _config => {
         },
 
         fail(error) {
-          console.error('看看错误数据结构', error);
           reject(error);
         }
 
       }));
-      coreRequestBase.pendding(config, request.abort);
+      coreRequestBase.pendding(config, () => request.abort());
     });
   }
 };

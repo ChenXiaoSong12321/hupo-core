@@ -29,6 +29,7 @@ service.interceptors.response.use(
         filterError(error.response)
       }
     }
+    return Promise.reject(error)
   }
 )
 
