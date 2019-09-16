@@ -1,19 +1,19 @@
 import defaultData from './defaultData'
-import {channelInterface} from '@hupo/core-channel'
+import { channelInterface } from '@hupo/core-channel'
 
 const isAllScreen = () => /iphone/gi.test(window.navigator.userAgent) && window.screen.height >= 812
 
 const calculate = () => {
   const data = defaultData()
   channelInterface({
-    H5(){
-      if(isAllScreen())data.isAllScreen = true
+    H5() {
+      if (isAllScreen())data.isAllScreen = true
     },
-    WX_H5(){
-      if(isAllScreen())data.isAllScreen = true
+    WX_H5() {
+      if (isAllScreen())data.isAllScreen = true
       data.capsuleHeight = 0
     },
-    WX_MINI_PROGRAM(){
+    WX_MINI_PROGRAM() {
       const system = wx.getSystemInfoSync()
       if (system.platform == 'devtools') {
         data.capsuleHeight = 44

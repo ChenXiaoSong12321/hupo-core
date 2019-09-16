@@ -15,7 +15,7 @@ export default class Event {
 
   emit(event) {
     if (this.events[event] && this.events[event].length > 0) {
-      let events = this.events[event];
+      const events = this.events[event];
 
       if (events) {
         const args = [].slice.call(arguments, 1);
@@ -35,7 +35,7 @@ export default class Event {
       return;
     }
 
-    let events = this.events[event];
+    const events = this.events[event];
     if (!events) return; // remove all handlers
 
     if (arguments.length === 1) {

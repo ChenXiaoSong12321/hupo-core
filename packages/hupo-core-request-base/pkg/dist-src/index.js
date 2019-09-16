@@ -139,20 +139,24 @@ export const complete = (responseData, config) => {
         return responseData.data;
 
       case -1:
-        const error = {
-          message: '系统错误',
-          info: `${responseData.msg}: ${config.options.url}`,
-          data: responseData
-        };
-        return Promise.reject(error);
+        {
+          const error = {
+            message: '系统错误',
+            info: `${responseData.msg}: ${config.options.url}`,
+            data: responseData
+          };
+          return Promise.reject(error);
+        }
 
       default:
-        const defaultError = {
-          message: responseData.msg,
-          info: `${responseData.msg}: ${config.options.url}`,
-          data: responseData
-        };
-        return Promise.reject(defaultError);
+        {
+          const defaultError = {
+            message: responseData.msg,
+            info: `${responseData.msg}: ${config.options.url}`,
+            data: responseData
+          };
+          return Promise.reject(defaultError);
+        }
     }
   }
 };

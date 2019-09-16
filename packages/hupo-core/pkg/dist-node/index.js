@@ -18,6 +18,7 @@ var coreUrl = _interopDefault(require('@hupo/core-url'));
 var coreRequestBase = _interopDefault(require('@hupo/core-request-base'));
 var coreCmlViewport = _interopDefault(require('@hupo/core-cml-viewport'));
 var coreNetworkWeb = _interopDefault(require('@hupo/core-network-web'));
+var coreLoadScriptWeb = _interopDefault(require('@hupo/core-load-script-web'));
 var coreChannel = require('@hupo/core-channel');
 
 const requestWxapp = {
@@ -69,6 +70,7 @@ exports.url = coreUrl;
 exports.requestBase = coreRequestBase;
 exports.viewport = coreCmlViewport;
 exports.getNetworkType = coreNetworkWeb;
+exports.loadScript = coreLoadScriptWeb;
 Object.defineProperty(exports, 'channel', {
   enumerable: true,
   get: function () {
