@@ -1,13 +1,12 @@
-import {initialize as baseInitialize, defaultConfig, formatParams, pendding, filterResponse, filterError, complete} from '@hupo/core-request-base'
+import { initialize as baseInitialize, defaultConfig, formatParams, pendding, filterResponse, filterError, complete } from '@hupo/core-request-base'
 
 // 超时
 const CONFIG = defaultConfig()
 
 let base_url = ''
 
-
 export const request = async _config => {
-  if (typeof wx !== 'undefined'){
+  if (typeof wx !== 'undefined') {
     return new Promise((resolve, reject) => {
       const { options, data = {}, params = {}, headers = CONFIG.headers } = _config
       let config = {
@@ -15,12 +14,12 @@ export const request = async _config => {
         url: `${base_url}${options.url}`,
         header: headers,
         params,
-        data,
+        data
       }
       config = formatParams(config)
       const request = wx.request({
         ...config,
-        success(response){
+        success(response) {
           response.config = config
           response.status = response.statusCode
           filterError(response)
@@ -28,10 +27,10 @@ export const request = async _config => {
           const data = complete(response, _config)
           resolve(data)
         },
-        fail(error){
+        fail(error) {
           console.error('看看错误数据结构', error)
           reject(error)
-        },
+        }
       })
       pendding(config, request.abort)
     })

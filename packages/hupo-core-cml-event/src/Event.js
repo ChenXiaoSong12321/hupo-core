@@ -12,11 +12,11 @@ export default class Event {
   }
   emit(event) {
     if (this.events[event] && this.events[event].length > 0) {
-      let events = this.events[event]
-      if(events){
+      const events = this.events[event]
+      if (events) {
         const args = [].slice.call(arguments, 1)
         for (let i = 0, len = events.length; i < len; i++) {
-            events[i].apply(null, args)
+          events[i].apply(null, args)
         }
       }
     }
@@ -25,21 +25,21 @@ export default class Event {
     this.events = this.events || {}
     // all
     if (!arguments.length) {
-        this.events = {}
-        return
+      this.events = {}
+      return
     }
 
-    let events = this.events[event]
+    const events = this.events[event]
     if (!events) return
 
     // remove all handlers
     if (arguments.length === 1) {
-        delete this.events[event]
-        return
+      delete this.events[event]
+      return
     }
 
     // remove specific handler
-    events.splice(events.indexOf(handler) >>> 0, 1);
+    events.splice(events.indexOf(handler) >>> 0, 1)
     this.events[event] = events
     return
   }
