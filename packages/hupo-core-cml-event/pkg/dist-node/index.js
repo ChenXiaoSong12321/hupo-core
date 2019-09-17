@@ -7,7 +7,7 @@ function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'defau
 var global = _interopDefault(require('@hupo/core-global'));
 
 // event.js
-class Event$1 {
+class Event {
   constructor() {
     this.events = {};
     this.stores = {};
@@ -76,7 +76,7 @@ class Event$1 {
 
 var component = {
   created() {
-    this._event = new Event$1();
+    this._event = new Event();
   },
 
   beforeDestroy() {
@@ -119,7 +119,7 @@ var component = {
 
 var page = {
   created() {
-    this._event = new Event$1();
+    this._event = new Event();
   },
 
   beforeDestroy() {
@@ -162,7 +162,7 @@ var page = {
 
 global._eventbus = new Event();
 
-exports.Event = Event$1;
+exports.Event = Event;
 exports.componentEventMixin = component;
 exports.pageEventMixin = page;
 //# sourceMappingURL=index.js.map
