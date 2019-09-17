@@ -15,8 +15,8 @@ export default {
       return this._page._children[componentName] || [];
     },
 
-    _on(...arg) {
-      this._event.on(...arg);
+    _on(event, handler) {
+      this._event.on(event, handler);
     },
 
     _off(...arg) {
@@ -25,6 +25,10 @@ export default {
 
     _emit(...arg) {
       this._event.emit(...arg);
+    },
+
+    _emitCache(...arg) {
+      this._event.emitCache(...arg);
     },
 
     _broadcast(componentName, ...arg) {

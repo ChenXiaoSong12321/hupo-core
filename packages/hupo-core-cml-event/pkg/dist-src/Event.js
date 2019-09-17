@@ -2,6 +2,7 @@
 export default class Event {
   constructor() {
     this.events = {};
+    this.stores = {};
   }
 
   on(event, handler) {
@@ -11,6 +12,10 @@ export default class Event {
     }
 
     (this.events[event] = this.events[event] || []).push(handler);
+
+    if (this.stores[event]) {
+      this.emit(...this.stores[event]);
+    }
   }
 
   emit(event) {
@@ -27,11 +32,20 @@ export default class Event {
     }
   }
 
+  emitCache(...args) {
+    if (args.length) {
+      const event = args[0];
+      this.stores[event] = args;
+      this.emit(...args);
+    }
+  }
+
   off(event, handler) {
     this.events = this.events || {}; // all
 
     if (!arguments.length) {
       this.events = {};
+      this.stores = {};
       return;
     }
 
@@ -40,6 +54,7 @@ export default class Event {
 
     if (arguments.length === 1) {
       delete this.events[event];
+      delete this.stores[event];
       return;
     } // remove specific handler
 

@@ -2,10 +2,15 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
+function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
+
+var global = _interopDefault(require('@hupo/core-global'));
+
 // event.js
-class Event {
+class Event$1 {
   constructor() {
     this.events = {};
+    this.stores = {};
   }
 
   on(event, handler) {
@@ -15,6 +20,10 @@ class Event {
     }
 
     (this.events[event] = this.events[event] || []).push(handler);
+
+    if (this.stores[event]) {
+      this.emit(...this.stores[event]);
+    }
   }
 
   emit(event) {
@@ -31,11 +40,20 @@ class Event {
     }
   }
 
+  emitCache(...args) {
+    if (args.length) {
+      const event = args[0];
+      this.stores[event] = args;
+      this.emit(...args);
+    }
+  }
+
   off(event, handler) {
     this.events = this.events || {}; // all
 
     if (!arguments.length) {
       this.events = {};
+      this.stores = {};
       return;
     }
 
@@ -44,6 +62,7 @@ class Event {
 
     if (arguments.length === 1) {
       delete this.events[event];
+      delete this.stores[event];
       return;
     } // remove specific handler
 
@@ -57,7 +76,7 @@ class Event {
 
 var component = {
   created() {
-    this._event = new Event();
+    this._event = new Event$1();
   },
 
   beforeDestroy() {
@@ -71,8 +90,8 @@ var component = {
       return this._page._children[componentName] || [];
     },
 
-    _on(...arg) {
-      this._event.on(...arg);
+    _on(event, handler) {
+      this._event.on(event, handler);
     },
 
     _off(...arg) {
@@ -81,6 +100,10 @@ var component = {
 
     _emit(...arg) {
       this._event.emit(...arg);
+    },
+
+    _emitCache(...arg) {
+      this._event.emitCache(...arg);
     },
 
     _broadcast(componentName, ...arg) {
@@ -95,23 +118,51 @@ var component = {
 };
 
 var page = {
+  created() {
+    this._event = new Event$1();
+  },
+
+  beforeDestroy() {
+    this._off();
+
+    delete this._event;
+  },
+
   methods: {
     _getCurrentPageComponents(componentName) {
       return this._children[componentName] || [];
     },
 
-    _broadcast(componentName, ...arg) {
+    _on(event, handler) {
+      this._event.on(event, handler);
+    },
+
+    _off(...arg) {
+      this._event.off(...arg);
+    },
+
+    _emit(...arg) {
+      this._event.emit(...arg);
+    },
+
+    _emitCache(...arg) {
+      this._event.emitCache(...arg);
+    },
+
+    _broadcast(componentName, ...args) {
       const components = this._getCurrentPageComponents(componentName);
 
       components.forEach(item => {
-        item._event.emit(...arg);
+        item._event.emit(...args);
       });
     }
 
   }
 };
 
-exports.Event = Event;
+global._eventbus = new Event();
+
+exports.Event = Event$1;
 exports.componentEventMixin = component;
 exports.pageEventMixin = page;
 //# sourceMappingURL=index.js.map
