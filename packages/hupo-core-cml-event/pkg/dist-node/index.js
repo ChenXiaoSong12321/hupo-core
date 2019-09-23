@@ -22,7 +22,7 @@ class Event {
     (this.events[event] = this.events[event] || []).push(handler);
 
     if (this.stores[event]) {
-      this.emit(...this.stores[event]);
+      handler(...this.stores[event]);
     }
   }
 
@@ -40,11 +40,10 @@ class Event {
     }
   }
 
-  emitCache(...args) {
+  emitCache(event, ...args) {
     if (args.length) {
-      const event = args[0];
       this.stores[event] = args;
-      this.emit(...args);
+      this.emit(event, ...args);
     }
   }
 
@@ -57,12 +56,15 @@ class Event {
       return;
     }
 
+    if (arguments.length === 1 && this.stores[event]) {
+      delete this.stores[event];
+    }
+
     const events = this.events[event];
     if (!events) return; // remove all handlers
 
     if (arguments.length === 1) {
       delete this.events[event];
-      delete this.stores[event];
       return;
     } // remove specific handler
 
@@ -91,19 +93,19 @@ var component = {
     },
 
     _on(event, handler) {
-      this._event.on(event, handler);
+      this._event && this._event.on(event, handler);
     },
 
     _off(...arg) {
-      this._event.off(...arg);
+      this._event && this._event.off(...arg);
     },
 
     _emit(...arg) {
-      this._event.emit(...arg);
+      this._event && this._event.emit(...arg);
     },
 
     _emitCache(...arg) {
-      this._event.emitCache(...arg);
+      this._event && this._event.emitCache(...arg);
     },
 
     _broadcast(componentName, ...arg) {
@@ -134,19 +136,19 @@ var page = {
     },
 
     _on(event, handler) {
-      this._event.on(event, handler);
+      this._event && this._event.on(event, handler);
     },
 
     _off(...arg) {
-      this._event.off(...arg);
+      this._event && this._event.off(...arg);
     },
 
     _emit(...arg) {
-      this._event.emit(...arg);
+      this._event && this._event.emit(...arg);
     },
 
     _emitCache(...arg) {
-      this._event.emitCache(...arg);
+      this._event && this._event.emitCache(...arg);
     },
 
     _broadcast(componentName, ...args) {

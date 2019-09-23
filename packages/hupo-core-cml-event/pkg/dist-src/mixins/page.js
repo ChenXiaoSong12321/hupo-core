@@ -16,19 +16,19 @@ export default {
     },
 
     _on(event, handler) {
-      this._event.on(event, handler);
+      this._event && this._event.on(event, handler);
     },
 
     _off(...arg) {
-      this._event.off(...arg);
+      this._event && this._event.off(...arg);
     },
 
     _emit(...arg) {
-      this._event.emit(...arg);
+      this._event && this._event.emit(...arg);
     },
 
     _emitCache(...arg) {
-      this._event.emitCache(...arg);
+      this._event && this._event.emitCache(...arg);
     },
 
     _broadcast(componentName, ...args) {

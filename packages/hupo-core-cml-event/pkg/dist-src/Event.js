@@ -14,7 +14,7 @@ export default class Event {
     (this.events[event] = this.events[event] || []).push(handler);
 
     if (this.stores[event]) {
-      this.emit(...this.stores[event]);
+      handler(...this.stores[event]);
     }
   }
 
@@ -32,11 +32,10 @@ export default class Event {
     }
   }
 
-  emitCache(...args) {
+  emitCache(event, ...args) {
     if (args.length) {
-      const event = args[0];
       this.stores[event] = args;
-      this.emit(...args);
+      this.emit(event, ...args);
     }
   }
 
@@ -49,12 +48,15 @@ export default class Event {
       return;
     }
 
+    if (arguments.length === 1 && this.stores[event]) {
+      delete this.stores[event];
+    }
+
     const events = this.events[event];
     if (!events) return; // remove all handlers
 
     if (arguments.length === 1) {
       delete this.events[event];
-      delete this.stores[event];
       return;
     } // remove specific handler
 
