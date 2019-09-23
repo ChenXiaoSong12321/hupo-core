@@ -1,6 +1,6 @@
 {
   "name": "@hupo/core-dayjs",
-  "version": "0.2.18",
+  "version": "0.2.19",
   "description": "",
   "scripts": {
     "init": "lerna bootstrap",
