@@ -30,8 +30,16 @@ export const formatParams = config => {
   return config
 }
 
-// 获取请求唯一id
-export const getRequestIdentify = config => encodeURIComponent(JSON.stringify(config))
+// 获取请求唯一id// 获取请求唯一id
+export const getRequestIdentify = config => {
+  config.url = config.url.replace(config.baseURL, '')
+  config.data = typeof config.data === 'string' ? JSON.parse(config.data) : config.data
+  return encodeURIComponent(JSON.stringify({
+    url: config.url,
+    data: config.data,
+    method: config.method
+  }))
+}
 
 // 缓存正在请求的接口
 export const pendding = (config, abort) => {
