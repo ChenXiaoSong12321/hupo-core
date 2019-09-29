@@ -21,13 +21,17 @@ export const request = async _config => {
       config = formatParams(config);
       const request = wx.request({ ...config,
 
-        success(response) {
-          response.config = config;
-          response.status = response.statusCode;
-          filterError(response);
-          response = filterResponse(response);
-          const data = complete(response, _config);
-          resolve(data);
+        async success(response) {
+          try {
+            response.config = config;
+            response.status = response.statusCode;
+            await filterError(response);
+            response = filterResponse(response);
+            const data = await complete(response, _config);
+            resolve(data);
+          } catch (error) {
+            reject(error);
+          }
         },
 
         fail(error) {

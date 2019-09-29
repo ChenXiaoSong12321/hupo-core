@@ -1,9 +1,9 @@
 export const formatMoney = money => {
-  if (!money) return "0";
+  if (!money) return '0';
   let f = parseFloat(money);
 
   if (isNaN(f)) {
-    return "0";
+    return '0';
   }
 
   f = Math.round(money) / 100;
@@ -11,21 +11,21 @@ export const formatMoney = money => {
   return s;
 };
 export const formatDistance = distance => {
-  const onehundred = "100";
-  if (distance === null) return "";
+  const onehundred = '100';
+  if (distance === null) return '';
   var f = parseFloat(distance);
-  if (isNaN(f) || f < 100) return "100m以内";
+  if (isNaN(f) || f < 100) return '100m以内';
   if (f < 10 * parseInt(onehundred)) return `${f}m`;
   const kilometers = Math.floor(f / 10) / 100;
   if (f < 5 * parseInt(onehundred) * 10 * parseInt(onehundred)) return `${kilometers.toFixed(1)}km`;
-  return "500km以外";
+  return '500km以外';
 };
 export const compareVersion = (min, max) => {
-  min = min.split(".");
-  max = max.split(".");
+  min = min.split('.');
+  max = max.split('.');
   var len = Math.max(min.length, max.length);
-  min.length < len && min.push("0");
-  max.length < len && max.push("0");
+  min.length < len && min.push('0');
+  max.length < len && max.push('0');
 
   for (var i = 0; i < len; i++) {
     var num1 = parseInt(min[i]);

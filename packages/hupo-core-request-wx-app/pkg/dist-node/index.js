@@ -73,13 +73,17 @@ const request = async _config => {
       };
       config = coreRequestBase.formatParams(config);
       const request = wx.request(_objectSpread2({}, config, {
-        success(response) {
-          response.config = config;
-          response.status = response.statusCode;
-          coreRequestBase.filterError(response);
-          response = coreRequestBase.filterResponse(response);
-          const data = coreRequestBase.complete(response, _config);
-          resolve(data);
+        async success(response) {
+          try {
+            response.config = config;
+            response.status = response.statusCode;
+            await coreRequestBase.filterError(response);
+            response = coreRequestBase.filterResponse(response);
+            const data = await coreRequestBase.complete(response, _config);
+            resolve(data);
+          } catch (error) {
+            reject(error);
+          }
         },
 
         fail(error) {

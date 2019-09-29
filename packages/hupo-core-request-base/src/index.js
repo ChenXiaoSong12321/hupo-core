@@ -68,7 +68,7 @@ export const filterResponse = response => {
 }
 
 // 通用异常处理
-export const filterError = response => {
+export const filterError = response => new Promise((resolve, reject) => {
   let message = ''
   switch (response.status) {
     case 400: message = '请求错误'; break
@@ -90,32 +90,34 @@ export const filterError = response => {
     message = '系统繁忙，请稍后再试'
   }
   if (message) {
-    return Promise.reject({
+    reject({
       message,
       response
     })
+  } else {
+    resolve()
   }
-}
+})
 
-export const complete = (responseData, config) => {
+export const complete = (responseData, config) => new Promise((resolve, reject) => {
   const { code } = responseData
 
   if (code === undefined) {
     // 如果没有 code 代表这不是业务接口 比如获取配置
-    return responseData
+    resolve(responseData)
   } else {
     // 有 code 代表这是一个后端接口 可以进行进一步的判断
     switch (code) {
       case 0:
         // [ 示例 ] code === 0 代表没有错误
-        return responseData.data
+        resolve(responseData.data)
       case -1: {
         const error = {
           message: '系统错误',
           info: `${responseData.msg}: ${config.options.url}`,
           data: responseData
         }
-        return Promise.reject(error)
+        reject(error)
       }
       default: {
         const defaultError = {
@@ -123,8 +125,8 @@ export const complete = (responseData, config) => {
           info: `${responseData.msg}: ${config.options.url}`,
           data: responseData
         }
-        return Promise.reject(defaultError)
+        reject(defaultError)
       }
     }
   }
-}
+})

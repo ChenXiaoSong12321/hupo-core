@@ -75,7 +75,7 @@ const filterResponse = response => {
   return response.data;
 }; // 通用异常处理
 
-const filterError = response => {
+const filterError = response => new Promise((resolve, reject) => {
   let message = '';
 
   switch (response.status) {
@@ -132,26 +132,28 @@ const filterError = response => {
   }
 
   if (message) {
-    return Promise.reject({
+    reject({
       message,
       response
     });
+  } else {
+    resolve();
   }
-};
-const complete = (responseData, config) => {
+});
+const complete = (responseData, config) => new Promise((resolve, reject) => {
   const {
     code
   } = responseData;
 
   if (code === undefined) {
     // 如果没有 code 代表这不是业务接口 比如获取配置
-    return responseData;
+    resolve(responseData);
   } else {
     // 有 code 代表这是一个后端接口 可以进行进一步的判断
     switch (code) {
       case 0:
         // [ 示例 ] code === 0 代表没有错误
-        return responseData.data;
+        resolve(responseData.data);
 
       case -1:
         {
@@ -160,7 +162,7 @@ const complete = (responseData, config) => {
             info: `${responseData.msg}: ${config.options.url}`,
             data: responseData
           };
-          return Promise.reject(error);
+          reject(error);
         }
 
       default:
@@ -170,11 +172,11 @@ const complete = (responseData, config) => {
             info: `${responseData.msg}: ${config.options.url}`,
             data: responseData
           };
-          return Promise.reject(defaultError);
+          reject(defaultError);
         }
     }
   }
-};
+});
 
 exports.complete = complete;
 exports.defaultConfig = defaultConfig;
