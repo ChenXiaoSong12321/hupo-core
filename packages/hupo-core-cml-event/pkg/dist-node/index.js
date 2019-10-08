@@ -76,6 +76,8 @@ class Event {
 
 }
 
+const getViewId = instance => instance._uid ? instance._uid : instance.__wxWebviewId__ || instance.getPageId();
+
 var component = {
   created() {
     this._event = new Event();
@@ -89,7 +91,9 @@ var component = {
 
   methods: {
     _getCurrentPageComponents(componentName) {
-      return this._page._children[componentName] || [];
+      const viewId = getViewId(this);
+      const page = global._baseTree.pages[viewId];
+      return page && page._children ? page._children[componentName] : [];
     },
 
     _on(event, handler) {
