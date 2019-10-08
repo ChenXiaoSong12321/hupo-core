@@ -6,7 +6,7 @@ function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'defau
 
 var global = _interopDefault(require('@hupo/core-global'));
 
-const getViewId = instance => instance.__wxWebviewId__ || instance._uid;
+const getViewId = instance => instance._uid ? instance._uid : instance.__wxWebviewId__ || instance.getPageId();
 const getComponentName = instance => instance.__cml_originOptions__ ? instance.__cml_originOptions__.name : instance.$options.name;
 
 class BaseTree {
@@ -30,6 +30,10 @@ class BaseTree {
   }
 
   addComponent(component) {
+    const instance = component.$route ? component.$route.matched[0].instances.default : component;
+    const viewId = getViewId(instance);
+    const page = this.pages[viewId];
+    component._page = page;
     const name = getComponentName(component);
 
     if (!name) {
@@ -37,14 +41,9 @@ class BaseTree {
       return;
     }
 
-    const instance = component.$route ? component.$route.matched[0].instances.default : component;
-    const viewId = getViewId(instance);
-    const page = this.pages[viewId];
     if (!page._children[name]) page._children[name] = [];
 
     page._children[name].push(component);
-
-    component._page = page;
   }
 
   removeComponent(component) {

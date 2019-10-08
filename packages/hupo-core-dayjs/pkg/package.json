@@ -1,7 +1,7 @@
 {
   "name": "@hupo/core-dayjs",
   "description": "",
-  "version": "0.2.19",
+  "version": "0.2.20",
   "files": [
     "dist-*/",
     "bin/"
