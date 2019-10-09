@@ -1,8 +1,10 @@
 import global from '@hupo/core-global';
+if (!global.promise) global.promise = {};
+
+const isRegExp = reg => Object.prototype.toString.call(reg) === '[object RegExp]';
+
 export const exit = message => Promise.reject(new Error(message));
 export const cache = async (id, promise) => {
-  if (!global.promise) global.promise = {};
-
   if (!global.promise[id]) {
     global.promise[id] = promise();
   }
@@ -16,7 +18,15 @@ export const cache = async (id, promise) => {
   }
 };
 export const del = id => {
-  if (global.promise[id]) {
+  // 正则匹配
+  if (isRegExp(id)) {
+    Object.keys(global.promise).forEach(key => {
+      if (id.test(key)) {
+        global.promise[key] = null;
+        delete global.promise[key];
+      }
+    });
+  } else if (global.promise[id]) {
     global.promise[id] = null;
     delete global.promise[id];
   }

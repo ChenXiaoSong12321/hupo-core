@@ -82,11 +82,15 @@ const request = async _config => {
             const data = await coreRequestBase.complete(response, _config);
             resolve(data);
           } catch (error) {
+            const id = coreRequestBase.getRequestIdentify(config);
+            coreRequestBase.removePending(id);
             reject(error);
           }
         },
 
         fail(error) {
+          const id = coreRequestBase.getRequestIdentify(config);
+          coreRequestBase.removePending(id);
           reject(error);
         }
 

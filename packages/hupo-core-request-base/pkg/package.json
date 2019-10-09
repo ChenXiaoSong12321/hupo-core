@@ -1,7 +1,7 @@
 {
   "name": "@hupo/core-request-base",
   "description": "",
-  "version": "0.2.21",
+  "version": "0.2.22",
   "files": [
     "dist-*/",
     "bin/"
