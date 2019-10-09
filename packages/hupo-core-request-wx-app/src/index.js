@@ -1,4 +1,4 @@
-import { initialize as baseInitialize, defaultConfig, formatParams, pendding, filterResponse, filterError, complete } from '@hupo/core-request-base'
+import { initialize as baseInitialize, defaultConfig, formatParams, pendding, filterResponse, filterError, complete, getRequestIdentify, removePending } from '@hupo/core-request-base'
 
 // 超时
 const CONFIG = defaultConfig()
@@ -28,10 +28,14 @@ export const request = async _config => {
             const data = await complete(response, _config)
             resolve(data)
           } catch (error) {
+            const id = getRequestIdentify(config)
+            removePending(id)
             reject(error)
           }
         },
         fail(error) {
+          const id = getRequestIdentify(config)
+          removePending(id)
           reject(error)
         }
       })
