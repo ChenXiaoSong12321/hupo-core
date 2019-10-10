@@ -4,10 +4,6 @@ import global from '@hupo/core-global';
 const getViewId = instance => instance._uid ? instance._uid : instance.__wxWebviewId__ || instance.getPageId();
 
 export default {
-  created() {
-    this._event = new Event();
-  },
-
   beforeDestroy() {
     this._off();
 
@@ -22,7 +18,9 @@ export default {
     },
 
     _on(event, handler) {
-      this._event && this._event.on(event, handler);
+      if (!this._event) this._event = new Event();
+
+      this._event.on(event, handler);
     },
 
     _off(...arg) {

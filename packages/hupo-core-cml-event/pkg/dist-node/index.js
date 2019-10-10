@@ -79,10 +79,6 @@ class Event {
 const getViewId = instance => instance._uid ? instance._uid : instance.__wxWebviewId__ || instance.getPageId();
 
 var component = {
-  created() {
-    this._event = new Event();
-  },
-
   beforeDestroy() {
     this._off();
 
@@ -97,7 +93,9 @@ var component = {
     },
 
     _on(event, handler) {
-      this._event && this._event.on(event, handler);
+      if (!this._event) this._event = new Event();
+
+      this._event.on(event, handler);
     },
 
     _off(...arg) {
@@ -124,10 +122,6 @@ var component = {
 };
 
 var page = {
-  created() {
-    this._event = new Event();
-  },
-
   beforeDestroy() {
     this._off();
 
@@ -140,7 +134,9 @@ var page = {
     },
 
     _on(event, handler) {
-      this._event && this._event.on(event, handler);
+      if (!this._event) this._event = new Event();
+
+      this._event.on(event, handler);
     },
 
     _off(...arg) {
