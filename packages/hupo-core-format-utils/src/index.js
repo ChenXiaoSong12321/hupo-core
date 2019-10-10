@@ -20,17 +20,17 @@ export const formatDistance = distance => {
   return '500km以外'
 }
 
-export const compareVersion = (min, max) => {
+export const compareVersion = (version, min) => {
+  version = version.split('.')
   min = min.split('.')
-  max = max.split('.')
-  var len = Math.max(min.length, max.length)
+  var len = Math.max(version.length, min.length)
 
+  version.length < len && version.push('0')
   min.length < len && min.push('0')
-  max.length < len && max.push('0')
 
   for (var i = 0; i < len; i++) {
-    var num1 = parseInt(min[i])
-    var num2 = parseInt(max[i])
+    var num1 = parseInt(version[i])
+    var num2 = parseInt(min[i])
 
     if (num1 > num2) {
       return true
