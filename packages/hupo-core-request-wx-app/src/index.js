@@ -8,7 +8,7 @@ let base_url = ''
 export const request = async _config => {
   if (typeof wx !== 'undefined') {
     return new Promise((resolve, reject) => {
-      const { options, data = {}, params = {}, headers = CONFIG.headers } = _config
+      const { options, data = {}, params = {}, headers = CONFIG.headers, setting = {}} = _config
       let config = {
         method: options.type,
         url: `${base_url}${options.url}`,
@@ -19,6 +19,7 @@ export const request = async _config => {
       config = formatParams(config)
       const request = wx.request({
         ...config,
+        ...setting,
         async success(response) {
           try {
             response.config = config

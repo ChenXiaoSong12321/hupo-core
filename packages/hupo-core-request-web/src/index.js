@@ -34,14 +34,16 @@ service.interceptors.response.use(
 )
 
 export const request = async config => {
-  const { options, data = {}, params = {}, headers = {}, timeout = CONFIG.timeout } = config
+  // setting - 其他配置，例如responseType
+  const { options, data = {}, params = {}, headers = {}, timeout = CONFIG.timeout, setting = {}} = config
   const response = await service({
     method: options.type,
     url: options.url,
     headers,
     params,
     data,
-    timeout
+    timeout,
+    ...setting
   })
   return complete(response, config)
 }
