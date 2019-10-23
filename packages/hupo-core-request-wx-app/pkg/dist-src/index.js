@@ -9,7 +9,8 @@ export const request = async _config => {
         options,
         data = {},
         params = {},
-        headers = CONFIG.headers
+        headers = CONFIG.headers,
+        setting = {}
       } = _config;
       let config = {
         method: options.type,
@@ -20,6 +21,7 @@ export const request = async _config => {
       };
       config = formatParams(config);
       const request = wx.request({ ...config,
+        ...setting,
 
         async success(response) {
           try {

@@ -62,7 +62,8 @@ const request = async _config => {
         options,
         data = {},
         params = {},
-        headers = CONFIG.headers
+        headers = CONFIG.headers,
+        setting = {}
       } = _config;
       let config = {
         method: options.type,
@@ -72,7 +73,7 @@ const request = async _config => {
         data
       };
       config = coreRequestBase.formatParams(config);
-      const request = wx.request(_objectSpread2({}, config, {
+      const request = wx.request(_objectSpread2({}, config, {}, setting, {
         async success(response) {
           try {
             response.config = config;

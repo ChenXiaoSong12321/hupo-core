@@ -1,7 +1,7 @@
 {
   "name": "@hupo/core-cml-base-tree",
   "description": "",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "files": [
     "dist-*/",
     "bin/"
@@ -9,7 +9,7 @@
   "pika": true,
   "sideEffects": false,
   "dependencies": {
-    "@hupo/core-global": "^0.3.0"
+    "@hupo/core-global": "^0.3.1"
   },
   "devDependencies": {
     "@babel/plugin-transform-runtime": "^7.5.5",

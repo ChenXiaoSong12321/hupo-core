@@ -24,12 +24,14 @@ service.interceptors.response.use(response => filterResponse(response), error =>
   return Promise.reject(error);
 });
 export const request = async config => {
+  // setting - 其他配置，例如responseType
   const {
     options,
     data = {},
     params = {},
     headers = {},
-    timeout = CONFIG.timeout
+    timeout = CONFIG.timeout,
+    setting = {}
   } = config;
   const response = await service({
     method: options.type,
@@ -37,7 +39,8 @@ export const request = async config => {
     headers,
     params,
     data,
-    timeout
+    timeout,
+    ...setting
   });
   return complete(response, config);
 };
