@@ -34,7 +34,7 @@ export default class BaseTree {
       console.warn('you have to add name of component', component)
       return
     }
-    const viewId = getViewId(component._page)
+    const viewId = getViewId(component._page || component)
     const page = this.pages[viewId]
     if (page && page._children[name]) {
       page._children[name].splice(page._children[name].indexOf(component) >>> 0, 1)
