@@ -6,6 +6,7 @@ function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'defau
 
 var global = _interopDefault(require('@hupo/core-global'));
 var coreUrl = require('@hupo/core-url');
+var corePromise = require('@hupo/core-promise');
 
 global.__request_pending__ = {};
 const initialize = baseUrl => {
@@ -132,10 +133,10 @@ const filterError = response => new Promise((resolve, reject) => {
   }
 
   if (message) {
-    reject({
+    reject(corePromise.createError({
       message,
       response
-    });
+    }));
   } else {
     resolve();
   }
@@ -154,6 +155,7 @@ const complete = (responseData, config) => new Promise((resolve, reject) => {
       case 0:
         // [ 示例 ] code === 0 代表没有错误
         resolve(responseData.data);
+        break;
 
       case -1:
         {
@@ -162,7 +164,8 @@ const complete = (responseData, config) => new Promise((resolve, reject) => {
             info: `${responseData.msg}: ${config.options.url}`,
             data: responseData
           };
-          reject(error);
+          reject(corePromise.createError(error));
+          break;
         }
 
       default:
@@ -172,7 +175,8 @@ const complete = (responseData, config) => new Promise((resolve, reject) => {
             info: `${responseData.msg}: ${config.options.url}`,
             data: responseData
           };
-          reject(defaultError);
+          reject(corePromise.createError(defaultError));
+          break;
         }
     }
   }

@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { initialize as baseInitialize, defaultConfig, formatParams, pendding, filterResponse, filterError, complete } from '@hupo/core-request-base'
-
+import { exit } from '@hupo/core-promise'
 // 超时
 const CONFIG = defaultConfig()
 
@@ -29,7 +29,7 @@ service.interceptors.response.use(
         filterError(error.response)
       }
     }
-    return Promise.reject(error)
+    return exit(error)
   }
 )
 

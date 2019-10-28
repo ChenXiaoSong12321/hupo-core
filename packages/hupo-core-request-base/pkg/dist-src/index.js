@@ -1,5 +1,6 @@
 import global from '@hupo/core-global';
 import { addUrlParam } from '@hupo/core-url';
+import { createError } from '@hupo/core-promise';
 global.__request_pending__ = {};
 export const initialize = baseUrl => {
   console.log('baseURL', baseUrl);
@@ -125,10 +126,10 @@ export const filterError = response => new Promise((resolve, reject) => {
   }
 
   if (message) {
-    reject({
+    reject(createError({
       message,
       response
-    });
+    }));
   } else {
     resolve();
   }
@@ -147,6 +148,7 @@ export const complete = (responseData, config) => new Promise((resolve, reject) 
       case 0:
         // [ 示例 ] code === 0 代表没有错误
         resolve(responseData.data);
+        break;
 
       case -1:
         {
@@ -155,7 +157,8 @@ export const complete = (responseData, config) => new Promise((resolve, reject) 
             info: `${responseData.msg}: ${config.options.url}`,
             data: responseData
           };
-          reject(error);
+          reject(createError(error));
+          break;
         }
 
       default:
@@ -165,7 +168,8 @@ export const complete = (responseData, config) => new Promise((resolve, reject) 
             info: `${responseData.msg}: ${config.options.url}`,
             data: responseData
           };
-          reject(defaultError);
+          reject(createError(defaultError));
+          break;
         }
     }
   }

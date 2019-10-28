@@ -32,5 +32,9 @@
   "publishConfig": {
     "registry": "https://nexus.hupovip.cn/repository/hp-npm/"
   },
-  "gitHead": "ddec4904e617d66a816010381fca7e47e9ae6365"
+  "gitHead": "ddec4904e617d66a816010381fca7e47e9ae6365",
+  "dependencies": {
+    "@hupo/core-promise": "file:../hupo-core-promise",
+    "@hupo/core-request-base": "file:../hupo-core-request-base"
+  }
 }

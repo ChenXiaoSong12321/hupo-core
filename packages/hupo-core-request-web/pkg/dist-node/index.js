@@ -6,6 +6,7 @@ function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'defau
 
 var axios = _interopDefault(require('axios'));
 var coreRequestBase = require('@hupo/core-request-base');
+var corePromise = require('@hupo/core-promise');
 
 function _defineProperty(obj, key, value) {
   if (key in obj) {
@@ -76,7 +77,7 @@ service.interceptors.response.use(response => coreRequestBase.filterResponse(res
     }
   }
 
-  return Promise.reject(error);
+  return corePromise.exit(error);
 });
 const request = async config => {
   // setting - 其他配置，例如responseType

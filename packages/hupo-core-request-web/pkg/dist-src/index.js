@@ -1,5 +1,6 @@
 import axios from 'axios';
-import { initialize as baseInitialize, defaultConfig, formatParams, pendding, filterResponse, filterError, complete } from '@hupo/core-request-base'; // 超时
+import { initialize as baseInitialize, defaultConfig, formatParams, pendding, filterResponse, filterError, complete } from '@hupo/core-request-base';
+import { exit } from '@hupo/core-promise'; // 超时
 
 const CONFIG = defaultConfig();
 const CancelToken = axios.CancelToken; // 创建一个 axios 实例
@@ -21,7 +22,7 @@ service.interceptors.response.use(response => filterResponse(response), error =>
     }
   }
 
-  return Promise.reject(error);
+  return exit(error);
 });
 export const request = async config => {
   // setting - 其他配置，例如responseType

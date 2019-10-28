@@ -1,7 +1,26 @@
 import global from '@hupo/core-global'
 if (!global.promise) global.promise = {}
 const isRegExp = reg => Object.prototype.toString.call(reg) === '[object RegExp]'
-export const exit = message => Promise.reject(new Error(message))
+export const createError = data => {
+  if (typeof data === 'string') {
+    return new Error(data)
+  } else if (data instanceof Error) {
+    return data
+  } else {
+    const message = data.message || data.msg || 'reject'
+    const error = new Error(message)
+    Object.keys(data).forEach(key => {
+      if (key !== 'message') {
+        error[key] = data[key]
+      }
+    })
+    return error
+  }
+}
+export const exit = data => {
+  const error = createError(data)
+  return Promise.reject(error)
+}
 export const cache = async(id, promise) => {
   if (!global.promise[id]) {
     global.promise[id] = promise()
@@ -32,6 +51,7 @@ export const delay = time => new Promise(resolve => {
   setTimeout(resolve, time)
 })
 export default {
+  createError,
   exit,
   cache,
   del,

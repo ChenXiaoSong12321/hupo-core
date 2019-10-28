@@ -1,5 +1,6 @@
 import global from '@hupo/core-global'
 import { addUrlParam } from '@hupo/core-url'
+import { createError } from '@hupo/core-promise'
 global.__request_pending__ = {}
 
 export const initialize = baseUrl => {
@@ -90,10 +91,10 @@ export const filterError = response => new Promise((resolve, reject) => {
     message = '系统繁忙，请稍后再试'
   }
   if (message) {
-    reject({
+    reject(createError({
       message,
       response
-    })
+    }))
   } else {
     resolve()
   }
@@ -109,15 +110,17 @@ export const complete = (responseData, config) => new Promise((resolve, reject) 
     // 有 code 代表这是一个后端接口 可以进行进一步的判断
     switch (code) {
       case 0:
-        // [ 示例 ] code === 0 代表没有错误
+      // [ 示例 ] code === 0 代表没有错误
         resolve(responseData.data)
+        break
       case -1: {
         const error = {
           message: '系统错误',
           info: `${responseData.msg}: ${config.options.url}`,
           data: responseData
         }
-        reject(error)
+        reject(createError(error))
+        break
       }
       default: {
         const defaultError = {
@@ -125,7 +128,8 @@ export const complete = (responseData, config) => new Promise((resolve, reject) 
           info: `${responseData.msg}: ${config.options.url}`,
           data: responseData
         }
-        reject(defaultError)
+        reject(createError(defaultError))
+        break
       }
     }
   }

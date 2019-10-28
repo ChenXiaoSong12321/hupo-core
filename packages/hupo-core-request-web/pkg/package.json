@@ -1,7 +1,7 @@
 {
   "name": "@hupo/core-request-web",
   "description": "",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "files": [
     "dist-*/",
     "bin/"
@@ -9,6 +9,8 @@
   "pika": true,
   "sideEffects": false,
   "dependencies": {
+    "@hupo/core-promise": "file:../hupo-core-promise",
+    "@hupo/core-request-base": "file:../hupo-core-request-base",
     "axios": "^0.19.0"
   },
   "devDependencies": {

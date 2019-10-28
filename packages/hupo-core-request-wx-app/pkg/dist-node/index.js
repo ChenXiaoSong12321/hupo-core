@@ -3,6 +3,7 @@
 Object.defineProperty(exports, '__esModule', { value: true });
 
 var coreRequestBase = require('@hupo/core-request-base');
+var corePromise = require('@hupo/core-promise');
 
 function _defineProperty(obj, key, value) {
   if (key in obj) {
@@ -85,14 +86,14 @@ const request = async _config => {
           } catch (error) {
             const id = coreRequestBase.getRequestIdentify(config);
             coreRequestBase.removePending(id);
-            reject(error);
+            reject(corePromise.createError(error));
           }
         },
 
         fail(error) {
           const id = coreRequestBase.getRequestIdentify(config);
           coreRequestBase.removePending(id);
-          reject(error);
+          reject(corePromise.createError(error));
         }
 
       }));

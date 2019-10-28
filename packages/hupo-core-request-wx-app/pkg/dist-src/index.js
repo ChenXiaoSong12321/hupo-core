@@ -1,4 +1,5 @@
-import { initialize as baseInitialize, defaultConfig, formatParams, pendding, filterResponse, filterError, complete, getRequestIdentify, removePending } from '@hupo/core-request-base'; // 超时
+import { initialize as baseInitialize, defaultConfig, formatParams, pendding, filterResponse, filterError, complete, getRequestIdentify, removePending } from '@hupo/core-request-base';
+import { createError } from '@hupo/core-promise'; // 超时
 
 const CONFIG = defaultConfig();
 let base_url = '';
@@ -34,14 +35,14 @@ export const request = async _config => {
           } catch (error) {
             const id = getRequestIdentify(config);
             removePending(id);
-            reject(error);
+            reject(createError(error));
           }
         },
 
         fail(error) {
           const id = getRequestIdentify(config);
           removePending(id);
-          reject(error);
+          reject(createError(error));
         }
 
       });

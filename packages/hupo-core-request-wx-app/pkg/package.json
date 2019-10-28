@@ -1,14 +1,17 @@
 {
   "name": "@hupo/core-request-wx-app",
   "description": "",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "files": [
     "dist-*/",
     "bin/"
   ],
   "pika": true,
   "sideEffects": false,
-  "dependencies": {},
+  "dependencies": {
+    "@hupo/core-promise": "file:../hupo-core-promise",
+    "@hupo/core-request-base": "file:../hupo-core-request-base"
+  },
   "devDependencies": {
     "@babel/plugin-transform-runtime": "^7.5.5",
     "@babel/preset-env": "^7.5.5",
