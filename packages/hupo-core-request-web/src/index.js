@@ -26,7 +26,7 @@ service.interceptors.response.use(
   error => {
     if (error && error.message !== 'abort') {
       if (error && error.response) {
-        filterError(error.response)
+        return filterError(error.response)
       }
     }
     return exit(error)
