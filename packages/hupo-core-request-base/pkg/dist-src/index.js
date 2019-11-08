@@ -66,7 +66,7 @@ export const filterResponse = response => {
   console.groupEnd();
   const id = getRequestIdentify(response.config);
   removePending(id);
-  return response.data;
+  return response;
 }; // 通用异常处理
 
 export const filterError = response => new Promise((resolve, reject) => {
@@ -134,28 +134,31 @@ export const filterError = response => new Promise((resolve, reject) => {
     resolve();
   }
 });
-export const complete = (responseData, config) => new Promise((resolve, reject) => {
+export const complete = (response, config) => new Promise((resolve, reject) => {
+  const {
+    data = {}
+  } = response;
   const {
     code
-  } = responseData;
+  } = data;
 
   if (code === undefined) {
     // 如果没有 code 代表这不是业务接口 比如获取配置
-    resolve(responseData);
+    resolve(data);
   } else {
     // 有 code 代表这是一个后端接口 可以进行进一步的判断
     switch (code) {
       case 0:
         // [ 示例 ] code === 0 代表没有错误
-        resolve(responseData.data);
+        resolve(data.data);
         break;
 
       case -1:
         {
           const error = {
             message: '系统错误',
-            info: `${responseData.msg}: ${config.options.url}`,
-            data: responseData
+            info: `${data.msg}: ${config.options.url}`,
+            data: response
           };
           reject(createError(error));
           break;
@@ -164,9 +167,9 @@ export const complete = (responseData, config) => new Promise((resolve, reject) 
       default:
         {
           const defaultError = {
-            message: responseData.msg,
-            info: `${responseData.msg}: ${config.options.url}`,
-            data: responseData
+            message: data.msg,
+            info: `${data.msg}: ${config.options.url}`,
+            data: response
           };
           reject(createError(defaultError));
           break;

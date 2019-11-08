@@ -80,7 +80,7 @@ const request = async _config => {
             response.config = config;
             response.status = response.statusCode;
             await coreRequestBase.filterError(response);
-            response = coreRequestBase.filterResponse(response);
+            coreRequestBase.filterResponse(response);
             const data = await coreRequestBase.complete(response, _config);
             resolve(data);
           } catch (error) {

@@ -18,7 +18,7 @@ service.interceptors.request.use(config => {
 service.interceptors.response.use(response => filterResponse(response), error => {
   if (error && error.message !== 'abort') {
     if (error && error.response) {
-      filterError(error.response);
+      return filterError(error.response);
     }
   }
 

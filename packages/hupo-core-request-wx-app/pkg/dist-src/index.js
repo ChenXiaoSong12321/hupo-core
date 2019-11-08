@@ -29,7 +29,7 @@ export const request = async _config => {
             response.config = config;
             response.status = response.statusCode;
             await filterError(response);
-            response = filterResponse(response);
+            filterResponse(response);
             const data = await complete(response, _config);
             resolve(data);
           } catch (error) {

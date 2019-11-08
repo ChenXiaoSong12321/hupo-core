@@ -54,7 +54,7 @@ class BaseTree {
       return;
     }
 
-    const viewId = getViewId(component._page);
+    const viewId = getViewId(component._page || component);
     const page = this.pages[viewId];
 
     if (page && page._children[name]) {

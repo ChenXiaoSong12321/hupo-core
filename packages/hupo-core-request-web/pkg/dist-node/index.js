@@ -73,7 +73,7 @@ service.interceptors.request.use(config => {
 service.interceptors.response.use(response => coreRequestBase.filterResponse(response), error => {
   if (error && error.message !== 'abort') {
     if (error && error.response) {
-      coreRequestBase.filterError(error.response);
+      return coreRequestBase.filterError(error.response);
     }
   }
 
