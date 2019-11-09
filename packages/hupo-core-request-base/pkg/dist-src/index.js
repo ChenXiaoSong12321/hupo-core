@@ -158,7 +158,7 @@ export const complete = (response, config) => new Promise((resolve, reject) => {
           const error = {
             message: '系统错误',
             info: `${data.msg}: ${config.options.url}`,
-            data: response
+            response
           };
           reject(createError(error));
           break;
@@ -169,7 +169,7 @@ export const complete = (response, config) => new Promise((resolve, reject) => {
           const defaultError = {
             message: data.msg,
             info: `${data.msg}: ${config.options.url}`,
-            data: response
+            response
           };
           reject(createError(defaultError));
           break;
