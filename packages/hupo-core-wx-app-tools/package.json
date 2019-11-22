@@ -1,6 +1,6 @@
 {
   "name": "@hupo/core-wx-app-tools",
-  "version": "0.3.5",
+  "version": "0.3.6",
   "description": "",
   "scripts": {
     "init": "lerna bootstrap",
