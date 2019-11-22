@@ -44,12 +44,13 @@ export default class BaseTree {
       return;
     }
 
-    const viewId = getViewId(component._page || component);
-    const page = this.pages[viewId];
+    Object.keys(this.pages).forEach(key => {
+      const page = this.pages[key];
 
-    if (page && page._children[name]) {
-      page._children[name].splice(page._children[name].indexOf(component) >>> 0, 1);
-    }
+      if (page && page._children[name]) {
+        page._children[name].splice(page._children[name].indexOf(component) >>> 0, 1);
+      }
+    });
   }
 
 }
