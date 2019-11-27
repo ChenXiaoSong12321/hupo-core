@@ -1,6 +1,6 @@
 {
   "name": "@hupo/core-cml-base-tree",
-  "version": "0.3.6",
+  "version": "0.3.7",
   "description": "",
   "scripts": {
     "init": "lerna bootstrap",
@@ -29,7 +29,6 @@
     "@types/node": "^10.12.18",
     "babel-plugin-istanbul": "^5.2.0"
   },
-  "dependencies": {},
   "publishConfig": {
     "registry": "https://nexus.hupovip.cn/repository/hp-npm/"
   },
