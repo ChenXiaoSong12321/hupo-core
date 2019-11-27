@@ -29,9 +29,7 @@
     "@types/node": "^10.12.18",
     "babel-plugin-istanbul": "^5.2.0"
   },
-  "dependencies": {
-    "@hupo/core-global": "^0.3.6"
-  },
+  "dependencies": {},
   "publishConfig": {
     "registry": "https://nexus.hupovip.cn/repository/hp-npm/"
   },

@@ -1,44 +1,47 @@
-import { getViewId, getComponentName } from './utils'
-export default class BaseTree {
-  constructor() {
-    this.initialize()
+// 初始化 page id，判断组件和page是否在同一个page
+function initInstance(instance) {
+  Object.defineProperty(instance, '__page__id__', {
+    get() {
+      return this.__wxWebviewId__ || this.getPageId()
+    },
+    configurable: false,
+    enumerable: false
+  })
+}
+export function addPage(page) {
+  initInstance(page)
+  page._children = {}
+}
+export function addComponent(component) {
+  initInstance(component)
+  // 添加componentName
+  Object.defineProperty(component, 'componentName', {
+    get() {
+      return this.__cml_originOptions__.name
+    },
+    configurable: false,
+    enumerable: false
+  })
+  // 添加_page，可直接使用this._page获取到当前page
+  Object.defineProperty(component, '_page', {
+    get() {
+      return getCurrentPages().find(item => item.__page__id__ === this.__page__id__)
+    },
+    configurable: false,
+    enumerable: false
+  })
+  if (!component.componentName) {
+    console.warn('you have to add name of component', component)
+    return
   }
-  initialize() {
-    this.pages = {}
-  }
-  addPage(page) {
-    const viewId = getViewId(page)
-    page._children = {}
-    if (!this.pages[viewId]) this.pages[viewId] = page
-  }
-  removePage(page) {
-    const viewId = getViewId(page)
-    delete this.pages[viewId]
-  }
-  addComponent(component) {
-    const name = getComponentName(component)
-    if (!name) {
-      console.warn('you have to add name of component', component)
-      return
+  if (!component._page._children[component.componentName]) component._page._children[component.componentName] = []
+  component._page._children[component.componentName].push(component)
+}
+export function removeComponent(component) {
+  if (component && component.componentName && component._page && component._page._children[component.componentName]) {
+    const index = component._page._children[component.componentName].indexOf(component)
+    if (index > -1) {
+      component._page._children[component.componentName].splice(index, 1)
     }
-    const instance = component.$route ? component.$route.matched[0].instances.default : component
-    const viewId = getViewId(instance)
-    const page = this.pages[viewId]
-    component._page = page
-    if (!page._children[name])page._children[name] = []
-    page._children[name].push(component)
-  }
-  removeComponent(component) {
-    const name = getComponentName(component)
-    if (!name) {
-      console.warn('you have to add name of component', component)
-      return
-    }
-    Object.keys(this.pages).forEach(key => {
-      const page = this.pages[key]
-      if (page && page._children[name]) {
-        page._children[name].splice(page._children[name].indexOf(component) >>> 0, 1)
-      }
-    })
   }
 }
