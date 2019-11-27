@@ -1,11 +1,7 @@
-import global from '@hupo/core-global';
+import { addPage } from "../BaseTree.js";
 export default {
   beforeCreate() {
-    global._baseTree.addPage(this);
-  },
-
-  beforeDestroy() {
-    global._baseTree.removePage(this);
+    addPage(this);
   }
 
 };

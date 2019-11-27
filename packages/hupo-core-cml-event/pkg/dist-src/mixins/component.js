@@ -1,8 +1,4 @@
 import Event from '../Event.js';
-import global from '@hupo/core-global';
-
-const getViewId = instance => instance._uid ? instance._uid : instance.__wxWebviewId__ || instance.getPageId();
-
 export default {
   beforeDestroy() {
     this._off();
@@ -12,9 +8,7 @@ export default {
 
   methods: {
     _getCurrentPageComponents(componentName) {
-      const viewId = getViewId(this);
-      const page = global._baseTree.pages[viewId];
-      return page && page._children ? page._children[componentName] : [];
+      return this._page && this._page._children ? this._page._children[componentName] : [];
     },
 
     _on(event, handler) {

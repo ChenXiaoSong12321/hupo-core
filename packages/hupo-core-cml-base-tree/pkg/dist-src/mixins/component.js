@@ -1,11 +1,11 @@
-import global from '@hupo/core-global';
+import { addComponent, removeComponent } from "../BaseTree.js";
 export default {
   mounted() {
-    global._baseTree.addComponent(this);
+    addComponent(this);
   },
 
   beforeDestroy() {
-    global._baseTree.removeComponent(this);
+    removeComponent(this);
   }
 
 };
