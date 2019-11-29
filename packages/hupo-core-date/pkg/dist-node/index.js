@@ -321,5 +321,5 @@ var date = {
   parseDate: parseDate
 };
 
-exports.date = date;
+exports.dateUtils = date;
 //# sourceMappingURL=index.js.map

@@ -1,1 +1,1 @@
-export { default as date } from "./date.js";
+export { default as dateUtils } from "./date.js";
