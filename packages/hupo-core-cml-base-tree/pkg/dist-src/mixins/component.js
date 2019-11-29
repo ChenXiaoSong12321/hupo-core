@@ -1,5 +1,5 @@
-import { addComponent, removeComponent } from "../BaseTree.js";
-export default {
+import { addComponent, removeComponent } from "../baseTree/index.js";
+export const componentBaseTreeMixin = {
   mounted() {
     addComponent(this);
   },

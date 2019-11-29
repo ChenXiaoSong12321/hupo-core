@@ -1,4 +1,4 @@
-import * as C from './utils/constant'
+import * as C from './constant'
 const ArrayFrom = num => Array.from({ length: num }, () => '')
 
 const isUndefined = s => s === undefined

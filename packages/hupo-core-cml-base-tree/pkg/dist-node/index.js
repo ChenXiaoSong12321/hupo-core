@@ -58,7 +58,7 @@ function removeComponent(component) {
   }
 }
 
-var component = {
+const componentBaseTreeMixin = {
   mounted() {
     addComponent(this);
   },
@@ -69,13 +69,13 @@ var component = {
 
 };
 
-var page = {
+const pageBaseTreeMixin = {
   beforeCreate() {
     addPage(this);
   }
 
 };
 
-exports.componentBaseTreeMixin = component;
-exports.pageBaseTreeMixin = page;
+exports.componentBaseTreeMixin = componentBaseTreeMixin;
+exports.pageBaseTreeMixin = pageBaseTreeMixin;
 //# sourceMappingURL=index.js.map

@@ -48,7 +48,7 @@ export const deleteUrlParam = (name, url = '') => {
 
 export const addUrlParam = (param, url = '') => {
   for (const p in param) {
-    if (url.indexOf(p) === -1) {
+    if (url.indexOf(`${p}=`) === -1) {
       const spe = url.indexOf('?') > -1 ? '&' : '?';
       url = /(\#\/.+)$/g.test(url) ? url.replace(/(\#\/.+)$/g, spe + `${p}=${param[p]}` + '$1') : url + spe + `${p}=${param[p]}`;
     }

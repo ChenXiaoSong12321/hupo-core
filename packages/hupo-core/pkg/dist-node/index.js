@@ -19,6 +19,7 @@ var coreRequestBase = _interopDefault(require('@hupo/core-request-base'));
 var coreCmlViewport = _interopDefault(require('@hupo/core-cml-viewport'));
 var coreNetworkWeb = _interopDefault(require('@hupo/core-network-web'));
 var coreLoadScriptWeb = _interopDefault(require('@hupo/core-load-script-web'));
+var coreDate = require('@hupo/core-date');
 var coreChannel = require('@hupo/core-channel');
 
 const requestWxapp = {
@@ -30,22 +31,26 @@ const requestWeb = {
   initialize: coreRequestWeb.initialize
 };
 
+Object.keys(coreCmlBaseTree).forEach(function (k) {
+  if (k !== 'default') Object.defineProperty(exports, k, {
+    enumerable: true,
+    get: function () {
+      return coreCmlBaseTree[k];
+    }
+  });
+});
+Object.keys(coreDate).forEach(function (k) {
+  if (k !== 'default') Object.defineProperty(exports, k, {
+    enumerable: true,
+    get: function () {
+      return coreDate[k];
+    }
+  });
+});
 exports.format = coreFormatUtils;
 exports.global = coreGlobal;
 exports.promise = corePromise;
 exports.wxTools = coreWxAppTools;
-Object.defineProperty(exports, 'componentBaseTreeMixin', {
-  enumerable: true,
-  get: function () {
-    return coreCmlBaseTree.componentBaseTreeMixin;
-  }
-});
-Object.defineProperty(exports, 'pageBaseTreeMixin', {
-  enumerable: true,
-  get: function () {
-    return coreCmlBaseTree.pageBaseTreeMixin;
-  }
-});
 Object.defineProperty(exports, 'Event', {
   enumerable: true,
   get: function () {

@@ -45,7 +45,8 @@
     "@hupo/core-request-wx-app": "file:../hupo-core-request-wx-app",
     "@hupo/core-timer": "file:../hupo-core-timer",
     "@hupo/core-url": "file:../hupo-core-url",
-    "@hupo/core-wx-app-tools": "file:../hupo-core-wx-app-tools"
+    "@hupo/core-wx-app-tools": "file:../hupo-core-wx-app-tools",
+    "@hupo/core-date": "file:../hupo-core-date"
   },
   "publishConfig": {
     "registry": "https://nexus.hupovip.cn/repository/hp-npm/"

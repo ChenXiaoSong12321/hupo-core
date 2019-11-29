@@ -1,8 +1,8 @@
 import * as C from './utils/constant'
-import U from './utils/index'
+import * as U from './utils/index'
 import cn from './languages/zh-cn'
 
-export const format = (date, formatStr) => {
+export default (date, formatStr) => {
   const _d = U.parseDate(date)
   const _y = _d.getFullYear()
   const _M = _d.getMonth()
