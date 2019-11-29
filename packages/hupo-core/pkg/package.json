@@ -1,7 +1,7 @@
 {
   "name": "@hupo/core",
   "description": "",
-  "version": "0.3.7",
+  "version": "0.3.8",
   "files": [
     "dist-*/",
     "bin/"
@@ -13,6 +13,7 @@
     "@hupo/core-cml-base-tree": "file:../hupo-core-cml-base-tree",
     "@hupo/core-cml-event": "file:../hupo-core-cml-event",
     "@hupo/core-cml-viewport": "file:../hupo-core-cml-viewport",
+    "@hupo/core-date": "file:../hupo-core-date",
     "@hupo/core-dayjs": "file:../hupo-core-dayjs",
     "@hupo/core-format-utils": "file:../hupo-core-format-utils",
     "@hupo/core-global": "file:../hupo-core-global",
@@ -24,8 +25,7 @@
     "@hupo/core-request-wx-app": "file:../hupo-core-request-wx-app",
     "@hupo/core-timer": "file:../hupo-core-timer",
     "@hupo/core-url": "file:../hupo-core-url",
-    "@hupo/core-wx-app-tools": "file:../hupo-core-wx-app-tools",
-    "@hupo/core-date": "file:../hupo-core-date"
+    "@hupo/core-wx-app-tools": "file:../hupo-core-wx-app-tools"
   },
   "devDependencies": {
     "@babel/plugin-transform-runtime": "^7.5.5",

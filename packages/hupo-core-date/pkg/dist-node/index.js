@@ -33,16 +33,22 @@ const ArrayFrom = num => Array.from({
 
 const isUndefined = s => s === undefined;
 
+const setTimeZone = (date, timezone) => {
+  const offsetGMT = date.getTimezoneOffset(); // 本地时间和格林威治的时间差，单位为分钟
+  // 判断时区是否是设置的时区
+
+  if (offsetGMT / 60 + timezone !== 0) {
+    const timestamp = date.valueOf(); // 本地时间距 1970 年 1 月 1 日午夜（GMT 时间）之间的毫秒数
+
+    date.setTime(timestamp + offsetGMT * MILLISECONDS.minute + timezone * MILLISECONDS.hour);
+  }
+
+  return date;
+};
+
 const newDate = defaultDate => {
   const date = defaultDate ? new Date(defaultDate) : new Date();
-  const timezone = 8; // 目标时区时间，东八区
-
-  const offsetGMT = date.getTimezoneOffset(); // 本地时间和格林威治的时间差，单位为分钟
-
-  const timestamp = date.getTime(); // 本地时间距 1970 年 1 月 1 日午夜（GMT 时间）之间的毫秒数
-
-  date.setTime(timestamp + offsetGMT * MILLISECONDS.minute + timezone * MILLISECONDS.hour);
-  return date;
+  return setTimeZone(date, 8);
 };
 
 const parseDate = date => {
@@ -277,7 +283,7 @@ const add = (date, number, units) => {
       return parseDate(parseDate$1.setMonth($M + number));
 
     default:
-      return parseDate(parseDate$1.getTime() + number * (MILLISECONDS[unit] || 0));
+      return parseDate(parseDate$1.valueOf() + number * (MILLISECONDS[unit] || 0));
   }
 }; // 减少时间
 
@@ -311,7 +317,8 @@ var date = {
   isAfter,
   isBefore,
   diff,
-  format
+  format,
+  parseDate: parseDate
 };
 
 exports.date = date;
