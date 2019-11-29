@@ -71,7 +71,7 @@ const add = (date, number, units) => {
     case C.M:
       return U.parseDate(parseDate.setMonth($M + number))
     default:
-      return U.parseDate(parseDate.getTime() + number * (C.MILLISECONDS[unit] || 0))
+      return U.parseDate(parseDate.valueOf() + number * (C.MILLISECONDS[unit] || 0))
   }
 }
 
@@ -102,5 +102,6 @@ export default {
   isAfter,
   isBefore,
   diff,
-  format
+  format,
+  parseDate: U.parseDate
 }

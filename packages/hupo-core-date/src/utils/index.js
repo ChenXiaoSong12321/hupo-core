@@ -3,13 +3,19 @@ const ArrayFrom = num => Array.from({ length: num }, () => '')
 
 const isUndefined = s => s === undefined
 
+const setTimeZone = (date, timezone) => {
+  const offsetGMT = date.getTimezoneOffset() // 本地时间和格林威治的时间差，单位为分钟
+  // 判断时区是否是设置的时区
+  if (offsetGMT / 60 + timezone !== 0) {
+    const timestamp = date.valueOf() // 本地时间距 1970 年 1 月 1 日午夜（GMT 时间）之间的毫秒数
+    date.setTime(timestamp + offsetGMT * C.MILLISECONDS.minute + timezone * C.MILLISECONDS.hour)
+  }
+  return date
+}
+
 const newDate = defaultDate => {
   const date = defaultDate ? new Date(defaultDate) : new Date()
-  const timezone = 8 // 目标时区时间，东八区
-  const offsetGMT = date.getTimezoneOffset() // 本地时间和格林威治的时间差，单位为分钟
-  const timestamp = date.getTime() // 本地时间距 1970 年 1 月 1 日午夜（GMT 时间）之间的毫秒数
-  date.setTime(timestamp + offsetGMT * C.MILLISECONDS.minute + timezone * C.MILLISECONDS.hour)
-  return date
+  return setTimeZone(date, 8)
 }
 
 export const parseDate = date => {
