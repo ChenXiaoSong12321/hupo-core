@@ -59,10 +59,10 @@ const endOf = (...arg) => startOf(...arg, false); // 是否相同
 const isSame = (date1, date2, units) => {
   const parseDate2 = U.parseDate(date2);
   return startOf(date1, units) <= parseDate2 && parseDate2 <= endOf(date1, units);
-}; // date2 is after to date1
+}; // date1 is after to date2
 
 
-const isAfter = (date1, date2, units) => U.parseDate(date2) < startOf(date1, units); // date2 is before to date1
+const isAfter = (date1, date2, units) => U.parseDate(date2) < startOf(date1, units); // date1 is before to date2
 
 
 const isBefore = (date1, date2, units) => endOf(date1, units) < U.parseDate(date2); // 增加时间

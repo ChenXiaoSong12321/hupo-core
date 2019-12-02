@@ -1,7 +1,7 @@
 {
   "name": "@hupo/core-url",
   "description": "",
-  "version": "0.3.9",
+  "version": "0.3.10",
   "files": [
     "dist-*/",
     "bin/"

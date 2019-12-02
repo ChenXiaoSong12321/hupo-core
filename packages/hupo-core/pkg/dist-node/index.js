@@ -10,7 +10,6 @@ var coreFormatUtils = require('@hupo/core-format-utils');
 var coreGlobal = _interopDefault(require('@hupo/core-global'));
 var corePromise = _interopDefault(require('@hupo/core-promise'));
 var coreWxAppTools = _interopDefault(require('@hupo/core-wx-app-tools'));
-var coreCmlBaseTree = require('@hupo/core-cml-base-tree');
 var coreCmlEvent = require('@hupo/core-cml-event');
 var coreDayjs = _interopDefault(require('@hupo/core-dayjs'));
 var coreTimer = _interopDefault(require('@hupo/core-timer'));
@@ -20,6 +19,7 @@ var coreCmlViewport = _interopDefault(require('@hupo/core-cml-viewport'));
 var coreNetworkWeb = _interopDefault(require('@hupo/core-network-web'));
 var coreLoadScriptWeb = _interopDefault(require('@hupo/core-load-script-web'));
 var coreDate = require('@hupo/core-date');
+var coreCmlBaseTree = require('@hupo/core-cml-base-tree');
 var coreChannel = require('@hupo/core-channel');
 
 const requestWxapp = {
@@ -31,19 +31,19 @@ const requestWeb = {
   initialize: coreRequestWeb.initialize
 };
 
-Object.keys(coreCmlBaseTree).forEach(function (k) {
-  if (k !== 'default') Object.defineProperty(exports, k, {
-    enumerable: true,
-    get: function () {
-      return coreCmlBaseTree[k];
-    }
-  });
-});
 Object.keys(coreDate).forEach(function (k) {
   if (k !== 'default') Object.defineProperty(exports, k, {
     enumerable: true,
     get: function () {
       return coreDate[k];
+    }
+  });
+});
+Object.keys(coreCmlBaseTree).forEach(function (k) {
+  if (k !== 'default') Object.defineProperty(exports, k, {
+    enumerable: true,
+    get: function () {
+      return coreCmlBaseTree[k];
     }
   });
 });
