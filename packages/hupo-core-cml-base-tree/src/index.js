@@ -1,2 +1,2 @@
-export * from './mixins/component'
-export * from './mixins/page'
+export { componentBaseTreeMixin } from './mixins/component'
+export { pageBaseTreeMixin } from './mixins/page'

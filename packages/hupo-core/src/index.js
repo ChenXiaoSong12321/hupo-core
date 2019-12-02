@@ -4,7 +4,6 @@ import * as format from '@hupo/core-format-utils'
 export { default as global } from '@hupo/core-global'
 export { default as promise } from '@hupo/core-promise'
 export { default as wxTools } from '@hupo/core-wx-app-tools'
-export * from '@hupo/core-cml-base-tree'
 export { Event, componentEventMixin, pageEventMixin } from '@hupo/core-cml-event'
 export { default as dayjs } from '@hupo/core-dayjs'
 export { default as timer } from '@hupo/core-timer'
@@ -15,6 +14,7 @@ export { default as getNetworkType } from '@hupo/core-network-web'
 export { default as loadScript } from '@hupo/core-load-script-web'
 
 export * from '@hupo/core-date'
+export * from '@hupo/core-cml-base-tree'
 
 export const requestWxapp = {
   request: requestWxapp$request,
