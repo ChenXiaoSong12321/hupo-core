@@ -1,4 +1,4 @@
-export default {
+export const timer = {
   beforeDestroy() {
     (this.__setTimeout__ || []).forEach(item => {
       clearTimeout(item)

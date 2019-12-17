@@ -15,13 +15,12 @@ const formatMoney = money => {
   return s;
 };
 const formatDistance = distance => {
-  const onehundred = '100';
-  if (distance === null) return '';
   var f = parseFloat(distance);
-  if (isNaN(f) || f < 100) return '100m以内';
-  if (f < 10 * parseInt(onehundred)) return `${f}m`;
+  if (isNaN(f)) return '';
+  if (f < 100) return '100m以内';
+  if (f < 1000) return `${f}m`;
   const kilometers = Math.floor(f / 10) / 100;
-  if (f < 5 * parseInt(onehundred) * 10 * parseInt(onehundred)) return `${kilometers.toFixed(1)}km`;
+  if (f < 500000) return `${kilometers.toFixed(1)}km`;
   return '500km以外';
 };
 const compareVersion = (version, min) => {

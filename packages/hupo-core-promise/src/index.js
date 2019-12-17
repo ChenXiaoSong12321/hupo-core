@@ -1,4 +1,4 @@
-import global from '@hupo/core-global'
+import { global } from '@hupo/core-global'
 if (!global.promise) global.promise = {}
 const isRegExp = reg => Object.prototype.toString.call(reg) === '[object RegExp]'
 export const createError = data => {
@@ -50,7 +50,7 @@ export const del = id => {
 export const delay = time => new Promise(resolve => {
   setTimeout(resolve, time)
 })
-export default {
+export const promise = {
   createError,
   exit,
   cache,

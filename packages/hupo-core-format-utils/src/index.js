@@ -1,4 +1,4 @@
-export const formatMoney = money => {
+const formatMoney = money => {
   if (!money) return '0'
   let f = parseFloat(money)
   if (isNaN(f)) {
@@ -9,7 +9,7 @@ export const formatMoney = money => {
   return s
 }
 
-export const formatDistance = distance => {
+const formatDistance = distance => {
   var f = parseFloat(distance)
   if (isNaN(f)) return ''
   if (f < 100) return '100m以内'
@@ -19,7 +19,7 @@ export const formatDistance = distance => {
   return '500km以外'
 }
 
-export const compareVersion = (version, min) => {
+const compareVersion = (version, min) => {
   version = version.split('.')
   min = min.split('.')
   var len = Math.max(version.length, min.length)
@@ -44,7 +44,7 @@ function rad(d) {
   return d * Math.PI / 180.0// 经纬度转换成三角函数中度分表形式。
 }
 
-export const calcDistance = (LatLng1, LatLng2) => {
+const calcDistance = (LatLng1, LatLng2) => {
   const radLat1 = rad(LatLng1.latitude)
   const radLat2 = rad(LatLng2.latitude)
   const a = radLat1 - radLat2
@@ -53,4 +53,11 @@ export const calcDistance = (LatLng1, LatLng2) => {
   s = s * 6378.137 // EARTH_RADIUS;
   s = Math.round(s * 10000) / 10 // 输出为米
   return s
+}
+
+export const format = {
+  formatMoney,
+  formatDistance,
+  compareVersion,
+  calcDistance
 }

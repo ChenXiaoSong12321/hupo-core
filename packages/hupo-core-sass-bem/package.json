@@ -1,0 +1,14 @@
+{
+  "name": "@hupo/core-sass-bem",
+  "version": "0.0.0",
+  "description": "",
+  "scripts": {
+    "build": ""
+  },
+  "main": "src/_output.scss",
+  "author": "hupo",
+  "publishConfig": {
+    "registry": "https://nexus.hupovip.cn/repository/hp-npm/"
+  },
+  "devDependencies": {}
+}

@@ -1,7 +1,7 @@
 {
   "name": "@hupo/core",
   "description": "",
-  "version": "0.3.10",
+  "version": "0.3.11",
   "files": [
     "dist-*/",
     "bin/"
@@ -10,22 +10,15 @@
   "sideEffects": false,
   "dependencies": {
     "@hupo/core-channel": "file:../hupo-core-channel",
-    "@hupo/core-cml-base-tree": "file:../hupo-core-cml-base-tree",
-    "@hupo/core-cml-event": "file:../hupo-core-cml-event",
-    "@hupo/core-cml-viewport": "file:../hupo-core-cml-viewport",
+    "@hupo/core-viewport": "file:../hupo-core-viewport",
     "@hupo/core-date": "file:../hupo-core-date",
-    "@hupo/core-dayjs": "file:../hupo-core-dayjs",
     "@hupo/core-format-utils": "file:../hupo-core-format-utils",
     "@hupo/core-global": "file:../hupo-core-global",
     "@hupo/core-load-script-web": "file:../hupo-core-load-script-web",
-    "@hupo/core-network-web": "file:../hupo-core-network-web",
     "@hupo/core-promise": "file:../hupo-core-promise",
-    "@hupo/core-request-base": "file:../hupo-core-request-base",
-    "@hupo/core-request-web": "file:../hupo-core-request-web",
-    "@hupo/core-request-wx-app": "file:../hupo-core-request-wx-app",
+    "@hupo/core-request": "file:../hupo-core-request",
     "@hupo/core-timer": "file:../hupo-core-timer",
-    "@hupo/core-url": "file:../hupo-core-url",
-    "@hupo/core-wx-app-tools": "file:../hupo-core-wx-app-tools"
+    "@hupo/core-url": "file:../hupo-core-url"
   },
   "devDependencies": {
     "@babel/plugin-transform-runtime": "^7.5.5",
