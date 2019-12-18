@@ -1,5 +1,5 @@
 import * as requestUtils from '@hupo/core-request-utils'
-import { createError } from '@hupo/core-promise'
+import { promise } from '@hupo/core-promise'
 import { global } from '@hupo/core-global'
 
 const CONFIG = requestUtils.defaultConfig()
@@ -23,7 +23,7 @@ export const send = async config => {
   const [error, res] = await task
   requestUtils.removePending(config)
   if (error) {
-    return Promise.reject(createError({
+    return Promise.reject(promise.createError({
       message: 'request fail',
       info: error,
       response: null
