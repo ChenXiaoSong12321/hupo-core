@@ -1,6 +1,6 @@
 {
   "name": "@hupo/core",
-  "version": "0.3.11",
+  "version": "2.0.0-uni-app.0",
   "description": "",
   "scripts": {
     "init": "lerna bootstrap",
@@ -31,13 +31,13 @@
   },
   "dependencies": {
     "@hupo/core-channel": "file:../hupo-core-channel",
-    "@hupo/core-viewport": "file:../hupo-core-viewport",
     "@hupo/core-date": "file:../hupo-core-date",
     "@hupo/core-format-utils": "file:../hupo-core-format-utils",
     "@hupo/core-global": "file:../hupo-core-global",
     "@hupo/core-promise": "file:../hupo-core-promise",
     "@hupo/core-timer": "file:../hupo-core-timer",
-    "@hupo/core-url": "file:../hupo-core-url"
+    "@hupo/core-url": "file:../hupo-core-url",
+    "@hupo/core-viewport": "file:../hupo-core-viewport"
   },
   "publishConfig": {
     "registry": "https://nexus.hupovip.cn/repository/hp-npm/"

@@ -1,6 +1,6 @@
 {
   "name": "@hupo/core-request-uni",
-  "version": "0.0.0",
+  "version": "2.0.0-uni-app.0",
   "description": "",
   "scripts": {
     "init": "lerna bootstrap",
@@ -25,12 +25,12 @@
   "devDependencies": {
     "@babel/plugin-transform-runtime": "^7.5.5",
     "@babel/preset-env": "^7.5.5",
-    "babel-plugin-istanbul": "^5.2.0",
     "@pika/pack": "^0.5.0",
     "@pika/plugin-build-node": "^0.6.0",
     "@pika/plugin-standard-pkg": "^0.6.0",
     "@pika/types": "^0.6.0",
-    "@types/node": "^10.12.18"
+    "@types/node": "^10.12.18",
+    "babel-plugin-istanbul": "^5.2.0"
   },
   "dependencies": {
     "@hupo/core-global": "file:../hupo-core-global",
