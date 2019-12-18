@@ -14,6 +14,7 @@ const formatMoney = money => {
   const s = parseFloat(f);
   return s;
 };
+
 const formatDistance = distance => {
   var f = parseFloat(distance);
   if (isNaN(f)) return '';
@@ -23,6 +24,7 @@ const formatDistance = distance => {
   if (f < 500000) return `${kilometers.toFixed(1)}km`;
   return '500km以外';
 };
+
 const compareVersion = (version, min) => {
   version = version.split('.');
   min = min.split('.');
@@ -61,8 +63,12 @@ const calcDistance = (LatLng1, LatLng2) => {
   return s;
 };
 
-exports.calcDistance = calcDistance;
-exports.compareVersion = compareVersion;
-exports.formatDistance = formatDistance;
-exports.formatMoney = formatMoney;
+const format = {
+  formatMoney,
+  formatDistance,
+  compareVersion,
+  calcDistance
+};
+
+exports.format = format;
 //# sourceMappingURL=index.js.map

@@ -1,7 +1,7 @@
 import { global } from '@hupo/core-global'
 if (!global.promise) global.promise = {}
 const isRegExp = reg => Object.prototype.toString.call(reg) === '[object RegExp]'
-export const createError = data => {
+const createError = data => {
   if (typeof data === 'string') {
     return new Error(data)
   } else if (data instanceof Error) {
@@ -17,11 +17,11 @@ export const createError = data => {
     return error
   }
 }
-export const exit = data => {
+const exit = data => {
   const error = createError(data)
   return Promise.reject(error)
 }
-export const cache = async(id, promise) => {
+const cache = async(id, promise) => {
   if (!global.promise[id]) {
     global.promise[id] = promise()
   }
@@ -33,7 +33,7 @@ export const cache = async(id, promise) => {
     return exit(error)
   }
 }
-export const del = id => {
+const del = id => {
   // 正则匹配
   if (isRegExp(id)) {
     Object.keys(global.promise).forEach(key => {
@@ -47,7 +47,7 @@ export const del = id => {
     delete global.promise[id]
   }
 }
-export const delay = time => new Promise(resolve => {
+const delay = time => new Promise(resolve => {
   setTimeout(resolve, time)
 })
 export const promise = {

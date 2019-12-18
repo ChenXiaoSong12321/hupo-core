@@ -1,5 +1,5 @@
 {
-  "name": "@hupo/core-request",
+  "name": "@hupo/core-request-utils",
   "description": "",
   "version": "0.0.0",
   "files": [
@@ -8,7 +8,11 @@
   ],
   "pika": true,
   "sideEffects": false,
-  "dependencies": {},
+  "dependencies": {
+    "@hupo/core-global": "file:../hupo-core-global",
+    "@hupo/core-promise": "file:../hupo-core-promise",
+    "@hupo/core-url": "file:../hupo-core-url"
+  },
   "devDependencies": {
     "@babel/plugin-transform-runtime": "^7.5.5",
     "@babel/preset-env": "^7.5.5",

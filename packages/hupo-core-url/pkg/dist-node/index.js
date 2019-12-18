@@ -24,6 +24,7 @@ const getQueryString = (name, url = '') => {
  * @returns
  */
 
+
 const deleteUrlParam = (name, url = '') => {
   const baseUrl = url.split('?')[0] + '?';
   const query = url.split('?')[1];
@@ -50,6 +51,7 @@ const deleteUrlParam = (name, url = '') => {
  * @returns
  */
 
+
 const addUrlParam = (param, url = '') => {
   for (const p in param) {
     if (url.indexOf(`${p}=`) === -1) {
@@ -60,6 +62,7 @@ const addUrlParam = (param, url = '') => {
 
   return url;
 };
+
 const formatUrlParam = (url = '') => {
   // 使用正则来 两边的参数不可能是 &=? 所以去反集[^&=?]
   const regex = /([^&=?]+)=([^&=?]+)/g;
@@ -69,16 +72,13 @@ const formatUrlParam = (url = '') => {
   });
   return param;
 };
-var index = {
+
+const url = {
   getQueryString,
   deleteUrlParam,
   addUrlParam,
   formatUrlParam
 };
 
-exports.addUrlParam = addUrlParam;
-exports.default = index;
-exports.deleteUrlParam = deleteUrlParam;
-exports.formatUrlParam = formatUrlParam;
-exports.getQueryString = getQueryString;
+exports.url = url;
 //# sourceMappingURL=index.js.map

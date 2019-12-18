@@ -36,7 +36,6 @@
     "@hupo/core-format-utils": "file:../hupo-core-format-utils",
     "@hupo/core-global": "file:../hupo-core-global",
     "@hupo/core-promise": "file:../hupo-core-promise",
-    "@hupo/core-request": "file:../hupo-core-request",
     "@hupo/core-timer": "file:../hupo-core-timer",
     "@hupo/core-url": "file:../hupo-core-url"
   },

@@ -35,3 +35,6 @@ export const channels = {
 }
 
 export const channel = calc()
+
+// 暂时保留，后续可能删掉 todo
+export const channelInterface = callback => callback[channel] && callback[channel]()

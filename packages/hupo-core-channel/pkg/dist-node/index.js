@@ -32,12 +32,16 @@ function calc() {
   }
 }
 
-const channel = calc();
+const channels = {
+  WX_H5,
+  H5,
+  WX_MINI_PROGRAM
+};
+const channel = calc(); // 暂时保留，后续可能删掉 todo
+
 const channelInterface = callback => callback[channel] && callback[channel]();
 
-exports.H5 = H5;
-exports.WX_H5 = WX_H5;
-exports.WX_MINI_PROGRAM = WX_MINI_PROGRAM;
 exports.channel = channel;
 exports.channelInterface = channelInterface;
+exports.channels = channels;
 //# sourceMappingURL=index.js.map

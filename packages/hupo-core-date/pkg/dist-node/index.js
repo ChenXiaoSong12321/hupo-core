@@ -308,7 +308,7 @@ const diff = (date1, date2, units) => {
   }
 };
 
-var date = {
+const dateUtils = {
   startOf,
   endOf,
   add,
@@ -321,5 +321,5 @@ var date = {
   parseDate: parseDate
 };
 
-exports.dateUtils = date;
+exports.dateUtils = dateUtils;
 //# sourceMappingURL=index.js.map

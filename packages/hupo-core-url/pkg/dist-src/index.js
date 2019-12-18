@@ -4,7 +4,7 @@
  * @param {*} name
  * @returns
  */
-export const getQueryString = (name, url = '') => {
+const getQueryString = (name, url = '') => {
   const reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)');
   const params = url.split('?');
   params.splice(0, 1);
@@ -20,7 +20,8 @@ export const getQueryString = (name, url = '') => {
  * @returns
  */
 
-export const deleteUrlParam = (name, url = '') => {
+
+const deleteUrlParam = (name, url = '') => {
   const baseUrl = url.split('?')[0] + '?';
   const query = url.split('?')[1];
   const obj = {};
@@ -46,7 +47,8 @@ export const deleteUrlParam = (name, url = '') => {
  * @returns
  */
 
-export const addUrlParam = (param, url = '') => {
+
+const addUrlParam = (param, url = '') => {
   for (const p in param) {
     if (url.indexOf(`${p}=`) === -1) {
       const spe = url.indexOf('?') > -1 ? '&' : '?';
@@ -56,7 +58,8 @@ export const addUrlParam = (param, url = '') => {
 
   return url;
 };
-export const formatUrlParam = (url = '') => {
+
+const formatUrlParam = (url = '') => {
   // 使用正则来 两边的参数不可能是 &=? 所以去反集[^&=?]
   const regex = /([^&=?]+)=([^&=?]+)/g;
   const param = {};
@@ -65,7 +68,8 @@ export const formatUrlParam = (url = '') => {
   });
   return param;
 };
-export default {
+
+export const url = {
   getQueryString,
   deleteUrlParam,
   addUrlParam,

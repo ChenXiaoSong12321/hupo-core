@@ -2,7 +2,7 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-var index = {
+const timer = {
   beforeDestroy() {
     (this.__setTimeout__ || []).forEach(item => {
       clearTimeout(item);
@@ -22,5 +22,5 @@ var index = {
   }
 };
 
-exports.default = index;
+exports.timer = timer;
 //# sourceMappingURL=index.js.map

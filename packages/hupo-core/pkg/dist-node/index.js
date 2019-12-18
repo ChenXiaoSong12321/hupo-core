@@ -2,92 +2,79 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
-
-var coreRequestWeb = require('@hupo/core-request-web');
-var coreRequestWxApp = require('@hupo/core-request-wx-app');
-var coreFormatUtils = require('@hupo/core-format-utils');
-var coreGlobal = _interopDefault(require('@hupo/core-global'));
-var corePromise = _interopDefault(require('@hupo/core-promise'));
-var coreWxAppTools = _interopDefault(require('@hupo/core-wx-app-tools'));
-var coreCmlEvent = require('@hupo/core-cml-event');
-var coreDayjs = _interopDefault(require('@hupo/core-dayjs'));
-var coreTimer = _interopDefault(require('@hupo/core-timer'));
-var coreUrl = _interopDefault(require('@hupo/core-url'));
-var coreRequestBase = _interopDefault(require('@hupo/core-request-base'));
-var coreCmlViewport = _interopDefault(require('@hupo/core-cml-viewport'));
-var coreNetworkWeb = _interopDefault(require('@hupo/core-network-web'));
-var coreLoadScriptWeb = _interopDefault(require('@hupo/core-load-script-web'));
-var coreDate = require('@hupo/core-date');
-var coreCmlBaseTree = require('@hupo/core-cml-base-tree');
+var coreGlobal = require('@hupo/core-global');
 var coreChannel = require('@hupo/core-channel');
+var coreDate = require('@hupo/core-date');
+var coreFormatUtils = require('@hupo/core-format-utils');
+var corePromise = require('@hupo/core-promise');
+var coreTimer = require('@hupo/core-timer');
+var coreUrl = require('@hupo/core-url');
+var coreViewport = require('@hupo/core-viewport');
 
-const requestWxapp = {
-  request: coreRequestWxApp.request,
-  initialize: coreRequestWxApp.initialize
-};
-const requestWeb = {
-  request: coreRequestWeb.request,
-  initialize: coreRequestWeb.initialize
-};
 
+
+Object.keys(coreGlobal).forEach(function (k) {
+	if (k !== 'default') Object.defineProperty(exports, k, {
+		enumerable: true,
+		get: function () {
+			return coreGlobal[k];
+		}
+	});
+});
+Object.keys(coreChannel).forEach(function (k) {
+	if (k !== 'default') Object.defineProperty(exports, k, {
+		enumerable: true,
+		get: function () {
+			return coreChannel[k];
+		}
+	});
+});
 Object.keys(coreDate).forEach(function (k) {
-  if (k !== 'default') Object.defineProperty(exports, k, {
-    enumerable: true,
-    get: function () {
-      return coreDate[k];
-    }
-  });
+	if (k !== 'default') Object.defineProperty(exports, k, {
+		enumerable: true,
+		get: function () {
+			return coreDate[k];
+		}
+	});
 });
-Object.keys(coreCmlBaseTree).forEach(function (k) {
-  if (k !== 'default') Object.defineProperty(exports, k, {
-    enumerable: true,
-    get: function () {
-      return coreCmlBaseTree[k];
-    }
-  });
+Object.keys(coreFormatUtils).forEach(function (k) {
+	if (k !== 'default') Object.defineProperty(exports, k, {
+		enumerable: true,
+		get: function () {
+			return coreFormatUtils[k];
+		}
+	});
 });
-exports.format = coreFormatUtils;
-exports.global = coreGlobal;
-exports.promise = corePromise;
-exports.wxTools = coreWxAppTools;
-Object.defineProperty(exports, 'Event', {
-  enumerable: true,
-  get: function () {
-    return coreCmlEvent.Event;
-  }
+Object.keys(corePromise).forEach(function (k) {
+	if (k !== 'default') Object.defineProperty(exports, k, {
+		enumerable: true,
+		get: function () {
+			return corePromise[k];
+		}
+	});
 });
-Object.defineProperty(exports, 'componentEventMixin', {
-  enumerable: true,
-  get: function () {
-    return coreCmlEvent.componentEventMixin;
-  }
+Object.keys(coreTimer).forEach(function (k) {
+	if (k !== 'default') Object.defineProperty(exports, k, {
+		enumerable: true,
+		get: function () {
+			return coreTimer[k];
+		}
+	});
 });
-Object.defineProperty(exports, 'pageEventMixin', {
-  enumerable: true,
-  get: function () {
-    return coreCmlEvent.pageEventMixin;
-  }
+Object.keys(coreUrl).forEach(function (k) {
+	if (k !== 'default') Object.defineProperty(exports, k, {
+		enumerable: true,
+		get: function () {
+			return coreUrl[k];
+		}
+	});
 });
-exports.dayjs = coreDayjs;
-exports.timer = coreTimer;
-exports.url = coreUrl;
-exports.requestBase = coreRequestBase;
-exports.viewport = coreCmlViewport;
-exports.getNetworkType = coreNetworkWeb;
-exports.loadScript = coreLoadScriptWeb;
-Object.defineProperty(exports, 'channel', {
-  enumerable: true,
-  get: function () {
-    return coreChannel.channel;
-  }
+Object.keys(coreViewport).forEach(function (k) {
+	if (k !== 'default') Object.defineProperty(exports, k, {
+		enumerable: true,
+		get: function () {
+			return coreViewport[k];
+		}
+	});
 });
-Object.defineProperty(exports, 'channelInterface', {
-  enumerable: true,
-  get: function () {
-    return coreChannel.channelInterface;
-  }
-});
-exports.requestWeb = requestWeb;
-exports.requestWxapp = requestWxapp;
 //# sourceMappingURL=index.js.map

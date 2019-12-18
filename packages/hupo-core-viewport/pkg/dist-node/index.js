@@ -6,8 +6,6 @@ var coreChannel = require('@hupo/core-channel');
 
 var defaultData = (() => {
   return {
-    platform: 'ios',
-    // 操作平台 用于适配胶囊高度
     capsuleHeight: 40,
     // 胶囊高度
     statusBarHeight: 0,
@@ -16,8 +14,6 @@ var defaultData = (() => {
     // 整个导航头高度
     headerHeight: 0,
     bottomHeight: 0,
-    viewportHeight: 0,
-    // 手机屏幕高度
     isAllScreen: false,
     // 是否是全面屏手机
     isHighHead: false // 是否是刘海屏手机
@@ -28,31 +24,32 @@ var defaultData = (() => {
 const isAllScreen = () => /iphone/gi.test(window.navigator.userAgent) && window.screen.height >= 812;
 
 const calculate = () => {
-  const data = defaultData();
-  coreChannel.channelInterface({
-    H5() {
-      if (isAllScreen()) data.isAllScreen = true;
-    },
+  const data = defaultData(); // #ifdef MP-WEIXIN
 
-    WX_H5() {
-      if (isAllScreen()) data.isAllScreen = true;
-      data.capsuleHeight = 0;
-    },
+  try {
+    const system = uni.getSystemInfoSync();
 
-    WX_MINI_PROGRAM() {
-      const system = wx.getSystemInfoSync();
-
-      if (system.platform == 'devtools') {
-        data.capsuleHeight = 44;
-      } else if (system.platform == 'android') {
-        data.capsuleHeight = 48;
-      }
-
-      data.statusBarHeight = system.statusBarHeight;
-      if (system.screenHeight - data.statusBarHeight > 750 && system.platform != 'android') data.isAllScreen = true;
+    if (system.platform == 'devtools') {
+      data.capsuleHeight = 44;
+    } else if (system.platform == 'android') {
+      data.capsuleHeight = 48;
     }
 
-  });
+    data.statusBarHeight = system.statusBarHeight;
+    if (system.screenHeight - data.statusBarHeight > 750 && system.platform != 'android') data.isAllScreen = true;
+  } catch (e) {
+    return calculate();
+  } // #endif
+  // #ifdef H5
+
+
+  if (isAllScreen()) data.isAllScreen = true;
+
+  if (coreChannel.channel === coreChannel.channels.WX_H5) {
+    data.capsuleHeight = 0;
+  } // #endif
+
+
   data.titleHeight = data.capsuleHeight + data.statusBarHeight;
 
   if (data.statusBarHeight >= 44) {
@@ -65,7 +62,7 @@ const calculate = () => {
   return data;
 };
 
-var index = calculate();
+const viewport = calculate();
 
-exports.default = index;
+exports.viewport = viewport;
 //# sourceMappingURL=index.js.map

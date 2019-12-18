@@ -3,18 +3,12 @@
 Object.defineProperty(exports, '__esModule', { value: true });
 
 // hupo
-const getGlobal = () => {
-  if (typeof window === 'undefined') {
-    if (!global.$mall) global.$mall = {};
-    return global.$mall;
-  } else {
-    if (!window.$mall) window.$mall = {};
-    return window.$mall;
-  }
-};
+var getGlobal = (() => {
+  if (!global.$mall) global.$mall = {};
+  return global.$mall;
+});
 
-const _global = getGlobal();
+const global$1 = getGlobal();
 
-exports._global = _global;
-exports.default = _global;
+exports.global = global$1;
 //# sourceMappingURL=index.js.map
