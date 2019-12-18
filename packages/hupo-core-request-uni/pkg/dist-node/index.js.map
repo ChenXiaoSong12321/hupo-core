@@ -1,0 +1,1 @@
+{"version":3,"file":"index.js","sources":["../dist-src/index.js"],"sourcesContent":["'use strict';\n\nmodule.exports = TODO;\n\nfunction TODO() {// TODO\n}"],"names":["module","exports","TODO"],"mappings":";;AAEAA,MAAM,CAACC,OAAP,GAAiBC,IAAjB;;AAEA,SAASA,IAAT,GAAgB;"}
