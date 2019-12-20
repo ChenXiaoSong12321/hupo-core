@@ -16,7 +16,7 @@
   max-height: $line-num*1.5;       /* 对不支持浏览器的弥补 */
 }
 
-@mixin h-loading($width:40cpx) {
+@mixin h-loading($width:40rpx) {
   @at-root {
     @keyframes loading-rotate {
       from {

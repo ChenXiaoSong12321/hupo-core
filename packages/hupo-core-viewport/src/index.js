@@ -1,37 +1,38 @@
 import defaultData from './defaultData'
 import { channel, channels } from '@hupo/core-channel'
 
-const isAllScreen = () => /iphone/gi.test(window.navigator.userAgent) && window.screen.height >= 812
-
 const calculate = () => {
   const data = defaultData()
-  // #ifdef MP-WEIXIN
+  let system
   try {
-    const system = uni.getSystemInfoSync()
-    if (system.platform == 'devtools') {
-      data.capsuleHeight = 44
-    } else if (system.platform == 'android') {
-      data.capsuleHeight = 48
-    }
-    data.statusBarHeight = system.statusBarHeight
-    if (system.screenHeight - data.statusBarHeight > 750 && system.platform != 'android') data.isAllScreen = true
+    system = uni.getSystemInfoSync()
   } catch (e) {
     return calculate()
   }
+  data.pixelRatio = system.pixelRatio
+  // #ifdef MP-WEIXIN
+  if (system.platform == 'devtools') {
+    data.capsuleHeight = 44 * data.pixelRatio
+  } else if (system.platform == 'android') {
+    data.capsuleHeight = 48 * data.pixelRatio
+  }
+  data.statusBarHeight = system.statusBarHeight * data.pixelRatio
+  if (system.screenHeight - data.statusBarHeight > 750 && system.platform != 'android') data.isAllScreen = true
   // #endif
   // #ifdef H5
+  const isAllScreen = () => /iphone/gi.test(window.navigator.userAgent) && window.screen.height >= 812
   if (isAllScreen())data.isAllScreen = true
+  data.capsuleHeight = data.capsuleHeight * data.pixelRatio
   if (channel === channels.WX_H5) {
     data.capsuleHeight = 0
   }
   // #endif
-  data.titleHeight = data.capsuleHeight + data.statusBarHeight
-  if (data.statusBarHeight >= 44) {
+  if (system.statusBarHeight >= 44) {
     data.isHighHead = true
   }
   data.headerHeight = data.statusBarHeight + data.capsuleHeight
   // 全面屏 底部留空距离 34px
-  data.bottomHeight = data.isAllScreen ? 34 : 0
+  data.bottomHeight = data.isAllScreen ? 34 * data.pixelRatio : 0
   return data
 }
 export const viewport = calculate()

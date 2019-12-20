@@ -1,7 +1,7 @@
 {
   "name": "@hupo/core",
   "description": "",
-  "version": "0.3.11",
+  "version": "2.0.0-uni-app.0",
   "files": [
     "dist-*/",
     "bin/"
@@ -10,13 +10,13 @@
   "sideEffects": false,
   "dependencies": {
     "@hupo/core-channel": "file:../hupo-core-channel",
-    "@hupo/core-viewport": "file:../hupo-core-viewport",
     "@hupo/core-date": "file:../hupo-core-date",
     "@hupo/core-format-utils": "file:../hupo-core-format-utils",
     "@hupo/core-global": "file:../hupo-core-global",
     "@hupo/core-promise": "file:../hupo-core-promise",
     "@hupo/core-timer": "file:../hupo-core-timer",
-    "@hupo/core-url": "file:../hupo-core-url"
+    "@hupo/core-url": "file:../hupo-core-url",
+    "@hupo/core-viewport": "file:../hupo-core-viewport"
   },
   "devDependencies": {
     "@babel/plugin-transform-runtime": "^7.5.5",
