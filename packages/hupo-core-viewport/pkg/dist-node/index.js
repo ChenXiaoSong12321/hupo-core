@@ -31,21 +31,23 @@ const calculate = () => {
     return calculate();
   }
 
-  data.pixelRatio = system.pixelRatio; // #ifdef MP-WEIXIN
+  data.pixelRatio = system.pixelRatio;
+  data.rpxRatio = 750 / system.screenWidth; // #ifdef MP-WEIXIN
 
   if (system.platform == 'devtools') {
-    data.capsuleHeight = 44 * data.pixelRatio;
+    data.capsuleHeight = 44 * data.rpxRatio;
   } else if (system.platform == 'android') {
-    data.capsuleHeight = 48 * data.pixelRatio;
+    data.capsuleHeight = 48 * data.rpxRatio;
   }
 
-  data.statusBarHeight = system.statusBarHeight * data.pixelRatio;
+  data.statusBarHeight = system.statusBarHeight * data.rpxRatio;
   if (system.screenHeight - data.statusBarHeight > 750 && system.platform != 'android') data.isAllScreen = true; // #endif
   // #ifdef H5
 
   const isAllScreen = () => /iphone/gi.test(window.navigator.userAgent) && window.screen.height >= 812;
 
   if (isAllScreen()) data.isAllScreen = true;
+  data.capsuleHeight = data.capsuleHeight * data.rpxRatio;
 
   if (coreChannel.channel === coreChannel.channels.WX_H5) {
     data.capsuleHeight = 0;
@@ -58,7 +60,7 @@ const calculate = () => {
 
   data.headerHeight = data.statusBarHeight + data.capsuleHeight; // 全面屏 底部留空距离 34px
 
-  data.bottomHeight = data.isAllScreen ? 34 * data.pixelRatio : 0;
+  data.bottomHeight = data.isAllScreen ? 34 * data.rpxRatio : 0;
   return data;
 };
 

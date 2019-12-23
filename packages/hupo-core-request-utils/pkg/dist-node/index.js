@@ -2,9 +2,7 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
-
-var global = _interopDefault(require('@hupo/core-global'));
+var coreGlobal = require('@hupo/core-global');
 var coreUrl = require('@hupo/core-url');
 var corePromise = require('@hupo/core-promise');
 
@@ -28,10 +26,10 @@ var corePromise = require('@hupo/core-promise');
     message：错误信息
     response：详见上
 */
-global._request = {};
+coreGlobal.global._request = {};
 const initialize = baseUrl => {
   console.log('baseUrl', baseUrl);
-  global._request.baseUrl = baseUrl;
+  coreGlobal.global._request.baseUrl = baseUrl;
 }; // 默认配置
 
 const defaultConfig = () => {
@@ -56,7 +54,7 @@ const formatParams = params => {
 
     _params[key] = encodeURIComponent(type.indexOf('Object') > -1 ? JSON.stringify(item) : item);
   });
-  return coreUrl.addUrlParam(_params);
+  return coreUrl.url.addUrlParam(_params);
 }; // 获取请求唯一id// 获取请求唯一id
 
 const getRequestIdentify = config => {
@@ -64,10 +62,10 @@ const getRequestIdentify = config => {
 }; // 缓存正在请求的接口
 
 const pendding = config => new Promise((resolve, reject) => {
-  if (!global._request.pendding) global._request.pendding = {};
+  if (!coreGlobal.global._request.pendding) coreGlobal.global._request.pendding = {};
   const id = getRequestIdentify(config);
 
-  if (global._request.pendding[id]) {
+  if (coreGlobal.global._request.pendding[id]) {
     // 重复请求
     reject(corePromise.promise.createError({
       message: 'abort',
@@ -75,14 +73,14 @@ const pendding = config => new Promise((resolve, reject) => {
       response: null
     }));
   } else {
-    global._request.pendding[id] = 1;
+    coreGlobal.global._request.pendding[id] = 1;
     resolve();
   }
 }); // 结束正在请求的接口
 
 const removePending = config => {
   const id = getRequestIdentify(config);
-  delete global._request.pendding[id];
+  delete coreGlobal.global._request.pendding[id];
 }; // 请求完成处理
 
 const filterResponse = response => {
