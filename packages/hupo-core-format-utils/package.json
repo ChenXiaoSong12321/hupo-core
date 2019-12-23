@@ -1,6 +1,6 @@
 {
   "name": "@hupo/core-format-utils",
-  "version": "2.0.0-uni-app.0",
+  "version": "2.0.0-uni-app.1",
   "description": "",
   "scripts": {
     "init": "lerna bootstrap",
