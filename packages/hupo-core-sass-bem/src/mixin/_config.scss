@@ -1,4 +1,4 @@
-$namespace: 'h';
-$element-separator: '-';
-$modifier-separator: '--';
-$state-prefix: 'is-';
+$namespace: 'h' !default;
+$element-separator: '-' !default;
+$modifier-separator: '--' !default;
+$state-prefix: 'is-' !default;

@@ -12,7 +12,8 @@ const toUniConfig = config => {
     data,
     header: headers,
     method: options.type.toUpperCase(),
-    timeout
+    timeout,
+    ...setting
   }
 }
 

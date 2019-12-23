@@ -19,8 +19,8 @@
     response：详见上
 */
 
-import global from '@hupo/core-global'
-import { addUrlParam } from '@hupo/core-url'
+import { global } from '@hupo/core-global'
+import { url } from '@hupo/core-url'
 import { promise } from '@hupo/core-promise'
 global._request = {}
 
@@ -47,7 +47,7 @@ export const formatParams = params => {
     }
     _params[key] = encodeURIComponent(type.indexOf('Object') > -1 ? JSON.stringify(item) : item)
   })
-  return addUrlParam(_params)
+  return url.addUrlParam(_params)
 }
 
 // 获取请求唯一id// 获取请求唯一id
