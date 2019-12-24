@@ -1,7 +1,7 @@
 {
   "name": "@hupo/core-timer",
   "description": "",
-  "version": "2.0.0-uni-app.0",
+  "version": "2.0.0-uni-app.1",
   "files": [
     "dist-*/",
     "bin/"
