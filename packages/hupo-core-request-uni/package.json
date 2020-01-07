@@ -1,6 +1,6 @@
 {
   "name": "@hupo/core-request-uni",
-  "version": "2.0.0-uni-app.3",
+  "version": "2.0.0-uni-app.4",
   "description": "",
   "scripts": {
     "init": "lerna bootstrap",
