@@ -16,8 +16,9 @@ const calculate = () => {
 
   const rpx2px = rpx => rpx / rpxRatio;
 
-  const px2rpx = rpx => rpx * rpxRatio; // #ifdef MP-WEIXIN
+  const px2rpx = rpx => rpx * rpxRatio;
 
+  data.capsuleHeight = px2rpx(data.capsuleHeight); // #ifdef MP-WEIXIN
 
   if (system.platform == 'devtools') {
     data.capsuleHeight = px2rpx(44);
@@ -26,13 +27,12 @@ const calculate = () => {
   }
 
   data.statusBarHeight = px2rpx(system.statusBarHeight);
-  if (system.screenHeight - data.statusBarHeight > 750 && system.platform != 'android') data.isAllScreen = true; // #endif
+  if (system.screenHeight - system.statusBarHeight > 750 && system.platform != 'android') data.isAllScreen = true; // #endif
   // #ifdef H5
 
   const isAllScreen = () => /iphone/gi.test(window.navigator.userAgent) && window.screen.height >= 812;
 
   if (isAllScreen()) data.isAllScreen = true;
-  data.capsuleHeight = px2rpx(data.capsuleHeight);
 
   if (channel === channels.WX_H5) {
     data.capsuleHeight = 0;
