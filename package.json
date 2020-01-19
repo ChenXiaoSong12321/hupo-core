@@ -9,11 +9,34 @@
     "registry": "https://nexus.hupovip.cn/repository/hp-npm/"
   },
   "devDependencies": {
+    "@commitlint/cli": "^8.3.4",
+    "@commitlint/config-conventional": "^8.3.4",
+    "standard-version": "^7.0.1",
+    "husky": "^4.0.9",
+    "commitizen": "^4.0.3",
+    "cz-customizable": "^6.2.0",
     "lerna": "^3.16.4",
     "babel-eslint": "^10.0.3",
     "eslint": "^6.3.0",
     "eslint-friendly-formatter": "^4.0.1",
     "eslint-plugin-html": "^6.0.0",
     "eslint-plugin-vue": "^5.2.3"
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-customizable"
+    }
+  },
+  "standard-version": {
+    "skip": {
+      "tag": true,
+      "commit": true,
+      "bump": true
+    }
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
   }
 }
