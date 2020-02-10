@@ -30,7 +30,7 @@
     "babel-plugin-istanbul": "^5.2.0"
   },
   "publishConfig": {
-    "registry": "https://nexus.hupovip.cn/repository/hp-npm/"
+    "registry": "https://soiiy-npm.pkg.coding.net/hupo-2.0-front/npm//"
   },
   "gitHead": "ddec4904e617d66a816010381fca7e47e9ae6365"
 }
