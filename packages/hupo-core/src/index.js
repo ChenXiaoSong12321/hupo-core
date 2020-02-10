@@ -29,4 +29,3 @@ export { channel, channelInterface } from '@hupo/core-channel'
 export {
   format
 }
-console.log('hupo-core')
