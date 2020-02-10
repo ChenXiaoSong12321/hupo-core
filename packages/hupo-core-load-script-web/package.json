@@ -20,7 +20,7 @@
     ]
   },
   "publishConfig": {
-    "registry": "https://soiiy-npm.pkg.coding.net/hupo-2.0-front/npm//"
+    "registry": "https://soiiy-npm.pkg.coding.net/hupo-2.0-front/npm/"
   },
   "devDependencies": {
     "@babel/plugin-transform-runtime": "^7.5.5",
