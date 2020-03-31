@@ -2,8 +2,6 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-var coreChannel = require('@hupo/core-channel');
-
 var defaultData = (() => {
   return {
     pixelRatio: 2,
@@ -52,12 +50,7 @@ const calculate = () => {
 
   const isAllScreen = () => /iphone/gi.test(window.navigator.userAgent) && window.screen.height >= 812;
 
-  if (isAllScreen()) data.isAllScreen = true;
-
-  if (coreChannel.channel === coreChannel.channels.WX_H5) {
-    data.capsuleHeight = 0;
-  } // #endif
-
+  if (isAllScreen()) data.isAllScreen = true; // #endif
 
   if (system.statusBarHeight >= 44) {
     data.isHighHead = true;

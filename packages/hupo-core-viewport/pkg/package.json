@@ -1,16 +1,14 @@
 {
   "name": "@hupo/core-viewport",
   "description": "",
-  "version": "2.0.0-uni-app.3",
+  "version": "2.0.0-uni-app.4",
   "files": [
     "dist-*/",
     "bin/"
   ],
   "pika": true,
   "sideEffects": false,
-  "dependencies": {
-    "@hupo/core-channel": "file:../hupo-core-channel"
-  },
+  "dependencies": {},
   "devDependencies": {
     "@babel/plugin-transform-runtime": "^7.5.5",
     "@babel/preset-env": "^7.5.5",

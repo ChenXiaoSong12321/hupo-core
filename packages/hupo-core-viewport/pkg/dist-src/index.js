@@ -1,5 +1,4 @@
 import defaultData from "./defaultData.js";
-import { channel, channels } from '@hupo/core-channel';
 
 const calculate = () => {
   const data = defaultData();
@@ -32,12 +31,7 @@ const calculate = () => {
 
   const isAllScreen = () => /iphone/gi.test(window.navigator.userAgent) && window.screen.height >= 812;
 
-  if (isAllScreen()) data.isAllScreen = true;
-
-  if (channel === channels.WX_H5) {
-    data.capsuleHeight = 0;
-  } // #endif
-
+  if (isAllScreen()) data.isAllScreen = true; // #endif
 
   if (system.statusBarHeight >= 44) {
     data.isHighHead = true;
