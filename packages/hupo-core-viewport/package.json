@@ -1,6 +1,6 @@
 {
   "name": "@hupo/core-viewport",
-  "version": "2.0.0-uni-app.4",
+  "version": "2.0.0-uni-app.6",
   "description": "",
   "scripts": {
     "init": "lerna bootstrap",
@@ -31,6 +31,5 @@
     "@pika/types": "^0.6.0",
     "@types/node": "^10.12.18",
     "babel-plugin-istanbul": "^5.2.0"
-  },
-  "dependencies": {}
+  }
 }
