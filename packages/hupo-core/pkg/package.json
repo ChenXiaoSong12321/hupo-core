@@ -1,7 +1,7 @@
 {
   "name": "@hupo/core",
   "description": "",
-  "version": "2.0.0-uni-app.4",
+  "version": "2.0.0-uni-app.6",
   "files": [
     "dist-*/",
     "bin/"
