@@ -8,7 +8,7 @@ const calculate = () => {
     return calculate()
   }
   data.pixelRatio = system.pixelRatio
-  const rpxRatio = 750 / system.screenWidth
+  const rpxRatio = 750 / system.windowWidth
 
   const rpx2px = rpx => rpx / rpxRatio
   const px2rpx = rpx => rpx * rpxRatio
@@ -21,7 +21,7 @@ const calculate = () => {
     data.capsuleHeight = px2rpx(48)
   }
   data.statusBarHeight = px2rpx(system.statusBarHeight)
-  if (system.screenHeight - system.statusBarHeight > 750 && system.platform != 'android') data.isAllScreen = true
+  if (system.windowHeight - system.statusBarHeight > 750 && system.platform != 'android') data.isAllScreen = true
   // #endif
   // #ifdef H5
   const isAllScreen = () => /iphone/gi.test(window.navigator.userAgent) && window.screen.height >= 812
