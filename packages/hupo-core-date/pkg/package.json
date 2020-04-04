@@ -1,7 +1,7 @@
 {
   "name": "@hupo/core-date",
   "description": "",
-  "version": "2.0.0-uni-app.6",
+  "version": "2.0.0-uni-app.7",
   "files": [
     "dist-*/",
     "bin/"

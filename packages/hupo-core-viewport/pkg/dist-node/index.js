@@ -36,7 +36,7 @@ const calculate = () => {
 
   const px2rpx = rpx => rpx * rpxRatio;
 
-  data.capsuleHeight = px2rpx(data.capsuleHeight); // #ifdef MP-WEIXIN
+  data.capsuleHeight = px2rpx(data.capsuleHeight); // #ifndef H5
 
   if (system.platform == 'devtools') {
     data.capsuleHeight = px2rpx(44);
