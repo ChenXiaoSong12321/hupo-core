@@ -14,7 +14,7 @@ const calculate = () => {
   const px2rpx = rpx => rpx * rpxRatio
 
   data.capsuleHeight = px2rpx(data.capsuleHeight)
-  // #ifdef MP-WEIXIN
+  // #ifndef H5
   if (system.platform == 'devtools') {
     data.capsuleHeight = px2rpx(44)
   } else if (system.platform == 'android') {
