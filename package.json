@@ -11,7 +11,7 @@
   "devDependencies": {
     "@commitlint/cli": "^8.3.4",
     "@commitlint/config-conventional": "^8.3.4",
-    "standard-version": "^7.0.1",
+    "standard-version": "^8.0.1",
     "husky": "^4.0.9",
     "commitizen": "^4.0.3",
     "cz-customizable": "^6.2.0",
